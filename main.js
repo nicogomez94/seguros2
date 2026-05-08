@@ -115,7 +115,6 @@ function showSection(name) {
     cotizaciones: 'Cotizaciones',
     polizas: 'Pólizas activas',
     clientes: 'Clientes',
-    reportes: 'Reportes',
     configuracion: 'Configuración'
   };
   const titleEl = document.getElementById('topbar-title');
