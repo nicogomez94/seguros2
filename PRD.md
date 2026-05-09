@@ -9,7 +9,7 @@ Preparado por ZigoDev
 
 Se desarrollara una pagina web para Seguros Timbues orientada a presentar la marca, mostrar opciones de seguros y permitir que una persona solicite una cotizacion.
 
-Tambien se incluye un panel administrativo visual para consultar informacion comercial, cotizaciones, polizas, clientes y configuracion.
+Tambien se incluye un panel administrativo visual para consultar informacion comercial, cotizaciones y configuracion.
 
 ## 2. Que incluye la pagina publica
 
@@ -44,8 +44,6 @@ Tambien se incluye un panel administrativo visual para consultar informacion com
 - Graficos visuales para cotizaciones por mes y distribucion de planes.
 - Tabla de ultimas cotizaciones.
 - Seccion de cotizaciones con listado, buscador, filtros por estado y plan, paginacion y acciones visuales.
-- Seccion de polizas activas con resumen, vencimientos, renovaciones, cancelaciones y listado de polizas.
-- Seccion de clientes con buscador, listado de datos principales y acciones visuales.
 - Seccion de configuracion para precios de planes, extras, datos de empresa y administradores.
 - Botones visuales para guardar cambios y mostrar confirmacion.
 - Acceso para volver al sitio publico.
@@ -56,7 +54,7 @@ Tambien se incluye un panel administrativo visual para consultar informacion com
 - No incluye envio real de emails.
 - No incluye integracion real con WhatsApp, CRM, pasarela de pago o sistema externo de seguros.
 - No incluye login real ni control de permisos para administradores.
-- No incluye alta, edicion o eliminacion real de cotizaciones, clientes o polizas.
+- No incluye alta, edicion o eliminacion real de cotizaciones.
 - No incluye validacion legal de textos, coberturas, precios o datos requeridos por SSN.
 - No incluye carga real de archivos, polizas, imagenes o documentacion.
 - No incluye blog funcional ni paginas internas completas de Sobre nosotros, Servicios, Contacto, Privacidad, Terminos o FAQ.
