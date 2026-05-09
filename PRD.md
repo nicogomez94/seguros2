@@ -39,10 +39,6 @@ Tambien se incluye un panel administrativo visual para consultar informacion com
 
 ## 4. Panel de administracion
 
-- Dashboard con indicadores principales del negocio.
-- Visualizacion de ingresos del mes, polizas activas, cotizaciones del mes y siniestros pendientes.
-- Graficos visuales para cotizaciones por mes y distribucion de planes.
-- Tabla de ultimas cotizaciones.
 - Seccion de cotizaciones con listado, buscador, filtros por estado y plan, paginacion y acciones visuales.
 - Seccion de configuracion para precios de planes, extras, datos de empresa y administradores.
 - Botones visuales para guardar cambios y mostrar confirmacion.

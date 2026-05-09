@@ -111,7 +111,6 @@ function showSection(name) {
 
   // Update topbar title
   const titles = {
-    dashboard: 'Dashboard',
     cotizaciones: 'Cotizaciones',
     polizas: 'Pólizas activas',
     clientes: 'Clientes',

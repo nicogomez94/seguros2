@@ -15,10 +15,7 @@
       <span>Seguros Timbúes</span>
     </div>
     <nav class="sidebar-nav">
-      <a href="#" class="sidebar-link active" onclick="showSection('dashboard')">
-        <span>📊</span> Dashboard
-      </a>
-      <a href="#" class="sidebar-link" onclick="showSection('cotizaciones')">
+      <a href="#" class="sidebar-link active" onclick="showSection('cotizaciones')">
         <span>📋</span> Cotizaciones
       </a>
       <a href="#" class="sidebar-link" onclick="showSection('configuracion')">
@@ -41,9 +38,8 @@
     <!-- TOP BAR -->
     <header class="admin-topbar">
       <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
-      <div class="topbar-title" id="topbar-title">Dashboard</div>
+      <div class="topbar-title" id="topbar-title">Cotizaciones</div>
       <div class="topbar-actions">
-        <span class="notif-bell">🔔 <span class="notif-badge">3</span></span>
         <div class="admin-user">
           <div class="user-avatar">AP</div>
           <span>Admin Panel</span>
@@ -52,159 +48,9 @@
     </header>
 
     <!-- ============================
-         SECCIÓN: DASHBOARD
-    ============================= -->
-    <section class="admin-section" id="section-dashboard">
-
-      <div class="kpi-grid">
-        <div class="kpi-card kpi-green">
-          <div class="kpi-icon">💰</div>
-          <div class="kpi-data">
-            <div class="kpi-number">$284,500</div>
-            <div class="kpi-label">Ingresos del mes</div>
-          </div>
-          <div class="kpi-trend up">▲ 12%</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-icon">📩</div>
-          <div class="kpi-data">
-            <div class="kpi-number">342</div>
-            <div class="kpi-label">Cotizaciones este mes</div>
-          </div>
-          <div class="kpi-trend up">▲ 23%</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-icon">⚠️</div>
-          <div class="kpi-data">
-            <div class="kpi-number">18</div>
-            <div class="kpi-label">Siniestros pendientes</div>
-          </div>
-          <div class="kpi-trend down">▼ 4%</div>
-        </div>
-      </div>
-
-      <!-- CHARTS ROW -->
-      <div class="charts-row">
-        <div class="chart-card">
-          <h3>Cotizaciones por mes</h3>
-          <div class="bar-chart">
-            <div class="bar-group">
-              <div class="bar" style="height:60%" title="Ene: 180"><span>Ene</span></div>
-              <div class="bar" style="height:75%" title="Feb: 225"><span>Feb</span></div>
-              <div class="bar" style="height:55%" title="Mar: 165"><span>Mar</span></div>
-              <div class="bar" style="height:90%" title="Abr: 270"><span>Abr</span></div>
-              <div class="bar" style="height:70%" title="May: 342"><span>May</span></div>
-              <div class="bar bar-empty" style="height:30%" title="Jun: -"><span>Jun</span></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="chart-card">
-          <h3>Distribución de planes</h3>
-          <div class="donut-chart-container">
-            <div class="donut-chart">
-              <svg viewBox="0 0 100 100" class="donut-svg">
-                <circle class="donut-ring" cx="50" cy="50" r="35" />
-                <circle class="donut-segment seg-1" cx="50" cy="50" r="35"
-                  stroke-dasharray="65 35" stroke-dashoffset="0" />
-                <circle class="donut-segment seg-2" cx="50" cy="50" r="35"
-                  stroke-dasharray="22 78" stroke-dashoffset="-65" />
-                <circle class="donut-segment seg-3" cx="50" cy="50" r="35"
-                  stroke-dasharray="13 87" stroke-dashoffset="-87" />
-              </svg>
-              <div class="donut-center">1284</div>
-            </div>
-            <div class="donut-legend">
-              <div class="legend-item"><span class="legend-dot dot-1"></span> Single (65%)</div>
-              <div class="legend-item"><span class="legend-dot dot-2"></span> Multi (22%)</div>
-              <div class="legend-item"><span class="legend-dot dot-3"></span> Black Box (13%)</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- RECENT QUOTES TABLE -->
-      <div class="table-card">
-        <div class="table-header">
-          <h3>Últimas cotizaciones</h3>
-          <button class="btn btn-sm btn-green" onclick="showSection('cotizaciones')">Ver todas</button>
-        </div>
-        <div class="table-responsive">
-          <table class="admin-table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Cliente</th>
-                <th>Vehículo</th>
-                <th>Plan</th>
-                <th>Precio</th>
-                <th>Estado</th>
-                <th>Fecha</th>
-                <th>Acción</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>#1042</td>
-                <td>Juan García</td>
-                <td>Toyota Corolla 2022</td>
-                <td>Básica</td>
-                <td>$150</td>
-                <td><span class="status-badge pending">Pendiente</span></td>
-                <td>02/05/2026</td>
-                <td><button class="btn btn-xs btn-green">Ver</button></td>
-              </tr>
-              <tr>
-                <td>#1041</td>
-                <td>María López</td>
-                <td>Ford Focus 2020</td>
-                <td>Intermedia</td>
-                <td>$200</td>
-                <td><span class="status-badge approved">Aprobada</span></td>
-                <td>01/05/2026</td>
-                <td><button class="btn btn-xs btn-green">Ver</button></td>
-              </tr>
-              <tr>
-                <td>#1040</td>
-                <td>Carlos Ruiz</td>
-                <td>BMW 320i 2023</td>
-                <td>Completa</td>
-                <td>$360</td>
-                <td><span class="status-badge approved">Aprobada</span></td>
-                <td>30/04/2026</td>
-                <td><button class="btn btn-xs btn-green">Ver</button></td>
-              </tr>
-              <tr>
-                <td>#1039</td>
-                <td>Ana Martínez</td>
-                <td>Renault Clio 2019</td>
-                <td>Básica</td>
-                <td>$150</td>
-                <td><span class="status-badge rejected">Rechazada</span></td>
-                <td>29/04/2026</td>
-                <td><button class="btn btn-xs btn-green">Ver</button></td>
-              </tr>
-              <tr>
-                <td>#1038</td>
-                <td>Pedro Sánchez</td>
-                <td>VW Vento 2021</td>
-                <td>Intermedia</td>
-                <td>$220</td>
-                <td><span class="status-badge pending">Pendiente</span></td>
-                <td>28/04/2026</td>
-                <td><button class="btn btn-xs btn-green">Ver</button></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- ============================
          SECCIÓN: COTIZACIONES
     ============================= -->
-    <section class="admin-section hidden" id="section-cotizaciones">
+    <section class="admin-section" id="section-cotizaciones">
       <div class="section-topbar">
         <h2>Cotizaciones</h2>
         <a href="cotizacion.html" target="_blank" class="btn btn-green">+ Nueva cotización</a>
