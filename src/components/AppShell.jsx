@@ -14,52 +14,79 @@ export default function AppShell() {
 
   return (
     <>
-      <header className="site-header">
+      <nav className="navbar">
         <div className="nav-container">
-          <Link className="brand" to="/" onClick={close}>
-            <span className="brand-mark">ST</span>
-            Seguros Timbúes
+          <Link className="nav-logo" to="/" onClick={close}>
+            <span className="logo-icon">🦅</span> Seguros Timbúes
           </Link>
-          <button className="menu-button" onClick={() => setOpen((value) => !value)} aria-label="Abrir menú">
-            ☰
+          <ul className={open ? "nav-links open" : "nav-links"}>
+            <li><NavLink to="/" end onClick={close}>Inicio</NavLink></li>
+            <li><NavLink to="/sobre-nosotros" onClick={close}>Sobre nosotros</NavLink></li>
+            <li><NavLink to="/servicios" onClick={close}>Servicios</NavLink></li>
+            <li><NavLink to="/blog" onClick={close}>Blog</NavLink></li>
+            <li><NavLink to="/contacto" onClick={close}>Contacto</NavLink></li>
+          </ul>
+          <div className="nav-cta">
+            <NavLink
+              className={({ isActive }) => isActive ? "btn btn-outline active-link" : "btn btn-outline"}
+              to="/cotizar"
+              onClick={close}
+            >
+              Cotizar
+            </NavLink>
+            <NavLink className="btn btn-sm-ghost" to="/admin" onClick={close}>
+              Admin
+            </NavLink>
+          </div>
+          <button className="hamburger" onClick={() => setOpen((v) => !v)} aria-label="Abrir menú">
+            &#9776;
           </button>
-          <nav className={`site-nav ${open ? "open" : ""}`}>
-            <NavLink onClick={close} to="/">Inicio</NavLink>
-            <NavLink onClick={close} to="/sobre-nosotros">Sobre nosotros</NavLink>
-            <NavLink onClick={close} to="/servicios">Servicios</NavLink>
-            <NavLink onClick={close} to="/blog">Blog</NavLink>
-            <NavLink onClick={close} to="/contacto">Contacto</NavLink>
-            <NavLink onClick={close} className="nav-quote" to="/cotizar">Cotizar</NavLink>
-            <NavLink onClick={close} className="nav-admin" to="/admin">Admin</NavLink>
-          </nav>
         </div>
-      </header>
+      </nav>
+
       <Outlet />
+
       <footer className="footer">
         <div className="container footer-grid">
-          <div>
+          <div className="footer-col">
             <h4>Navegación</h4>
-            <Link to="/">Inicio</Link>
-            <Link to="/servicios">Servicios</Link>
-            <Link to="/cotizar">Cotizar</Link>
-            <Link to="/contacto">Contacto</Link>
+            <ul>
+              <li><Link to="/">Inicio</Link></li>
+              <li><Link to="/cotizar">Cotizar</Link></li>
+              <li><Link to="/servicios">Servicios</Link></li>
+              <li><Link to="/contacto">Contacto</Link></li>
+            </ul>
           </div>
-          <div>
+          <div className="footer-col">
             <h4>Contacto</h4>
-            <p>{company?.phone || "0800-666-8400"}</p>
-            <p>{company?.email || "info@segurostimbues.com.ar"}</p>
-            <p>{company?.address || "Timbúes, Santa Fe, Argentina"}</p>
+            <ul>
+              <li>📞 {company?.phone || "0800-666-8400"}</li>
+              <li>✉ {company?.email || "info@segurostimbues.com.ar"}</li>
+              <li>📍 {company?.address || "Timbúes, Santa Fe, Argentina"}</li>
+            </ul>
           </div>
-          <div>
+          <div className="footer-col">
             <h4>Seguinos</h4>
-            <a href={company?.instagram || "https://instagram.com/segurostimbues"} target="_blank" rel="noreferrer">Instagram</a>
-            <a href="https://www.argentina.gob.ar/ssn" target="_blank" rel="noreferrer">SSN</a>
+            <ul>
+              <li>
+                <a href={company?.instagram || "https://instagram.com/segurostimbues"} target="_blank" rel="noreferrer">
+                  Instagram
+                </a>
+              </li>
+              <li>
+                <a href="https://www.argentina.gob.ar/ssn" target="_blank" rel="noreferrer">SSN</a>
+              </li>
+            </ul>
           </div>
-          <div>
+          <div className="footer-col">
             <h4>Institucional</h4>
-            <Link to="/sobre-nosotros">Nuestra empresa</Link>
-            <Link to="/blog">Novedades</Link>
-            <a href="https://zigodev.com.ar" target="_blank" rel="noreferrer">Hecho por ZigoDev</a>
+            <ul>
+              <li><Link to="/sobre-nosotros">Nuestra empresa</Link></li>
+              <li><Link to="/blog">Novedades</Link></li>
+              <li>
+                <a href="https://zigodev.com.ar" target="_blank" rel="noreferrer">Hecho por ZigoDev</a>
+              </li>
+            </ul>
           </div>
         </div>
         <div className="footer-bottom">
