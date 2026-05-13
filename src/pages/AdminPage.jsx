@@ -37,32 +37,32 @@ export default function AdminPage() {
     <div className="admin-body">
       <aside className={sidebarOpen ? "admin-sidebar open" : "admin-sidebar"} id="sidebar">
         <div className="sidebar-logo">
-          <span className="logo-icon">🦅</span>
-          <span>Seguros Timbúes</span>
+          <span className="logo-icon" aria-hidden="true">{"\u{1F985}"}</span>
+          <span>{"Seguros Timb\u00faes"}</span>
         </div>
         <nav className="sidebar-nav">
           <button className={tab === "quotes" ? "sidebar-link active" : "sidebar-link"} onClick={() => nav("quotes")}>
-            <span>📋</span> Cotizaciones
+            <span aria-hidden="true">{"\u{1F4CB}"}</span> Cotizaciones
           </button>
           <button className={tab === "pricing" ? "sidebar-link active" : "sidebar-link"} onClick={() => nav("pricing")}>
-            <span>💰</span> Precios
+            <span aria-hidden="true">{"\u{1F4B0}"}</span> Precios
           </button>
           <button className={tab === "company" ? "sidebar-link active" : "sidebar-link"} onClick={() => nav("company")}>
-            <span>⚙️</span> Configuración
+            <span aria-hidden="true">{"\u2699\uFE0F"}</span> {"Configuraci\u00f3n"}
           </button>
           <button className={tab === "users" ? "sidebar-link active" : "sidebar-link"} onClick={() => nav("users")}>
-            <span>👥</span> Administradores
+            <span aria-hidden="true">{"\u{1F465}"}</span> Administradores
           </button>
         </nav>
         <div className="sidebar-footer">
-          <Link className="sidebar-link" to="/"><span>🌐</span> Ver sitio</Link>
-          <button className="sidebar-link logout" onClick={logout}><span>🚪</span> Salir</button>
+          <Link className="sidebar-link" to="/"><span aria-hidden="true">{"\u{1F310}"}</span> Ver sitio</Link>
+          <button className="sidebar-link logout" onClick={logout}><span aria-hidden="true">{"\u{1F6AA}"}</span> Salir</button>
         </div>
       </aside>
 
       <div className="admin-main">
         <header className="admin-topbar">
-          <button className="sidebar-toggle" onClick={() => setSidebarOpen((value) => !value)}>☰</button>
+          <button className="sidebar-toggle" onClick={() => setSidebarOpen((value) => !value)} aria-label={"Abrir men\u00fa"}>{"\u2630"}</button>
           <div className="topbar-title">{tabTitle(tab)}</div>
           <div className="topbar-actions">
             {message && <span className="toast-inline">{message}</span>}
@@ -83,7 +83,7 @@ export default function AdminPage() {
 }
 
 function tabTitle(tab) {
-  return { quotes: "Cotizaciones", pricing: "Precios", company: "Configuración", users: "Administradores" }[tab];
+  return { quotes: "Cotizaciones", pricing: "Precios", company: "Configuraci\u00f3n", users: "Administradores" }[tab];
 }
 
 function QuotesPanel({ setMessage }) {
@@ -112,7 +112,7 @@ function QuotesPanel({ setMessage }) {
 
   async function remove(id) {
     await api("/api/admin/quotes/" + id, { method: "DELETE" });
-    setMessage("Cotización eliminada");
+    setMessage("Cotizaci\u00f3n eliminada");
     setSelected(null);
     load();
   }
@@ -121,13 +121,13 @@ function QuotesPanel({ setMessage }) {
     <div className="admin-section">
       <div className="section-topbar">
         <h2>Cotizaciones</h2>
-        <Link className="btn btn-green" to="/cotizar" target="_blank">+ Nueva cotización</Link>
+        <Link className="btn btn-green" to="/cotizar" target="_blank">{"+ Nueva cotizaci\u00f3n"}</Link>
       </div>
 
       <div className="filters-bar">
         <input
           className="filter-input"
-          placeholder="🔎 Buscar por cliente, email o número..."
+          placeholder={"\u{1F50E} Buscar por cliente, email o n\u00famero..."}
           value={filters.search}
           onChange={(e) => setFilters({ ...filters, search: e.target.value, page: 1 })}
         />
@@ -169,11 +169,11 @@ function QuotesPanel({ setMessage }) {
                   <td><span className={"status-badge " + statusCls(quote.status)}>{statuses[quote.status]}</span></td>
                   <td>{new Date(quote.createdAt).toLocaleDateString("es-AR")}</td>
                   <td className="actions-cell">
-                    <button className="btn btn-xs btn-outline" onClick={() => setSelected(quote)}>👁️</button>
+                    <button className="btn btn-xs btn-outline" onClick={() => setSelected(quote)} aria-label={"Ver detalle"}>{"\u{1F441}\uFE0F"}</button>
                     <select className="btn btn-xs" style={{ cursor: "pointer" }} value={quote.status} onChange={(e) => changeStatus(quote.id, e.target.value)}>
                       {Object.entries(statuses).map(([key, label]) => <option key={key} value={key}>{label}</option>)}
                     </select>
-                    <button className="btn btn-xs btn-danger" onClick={() => remove(quote.id)}>🗑️</button>
+                    <button className="btn btn-xs btn-danger" onClick={() => remove(quote.id)} aria-label={"Eliminar cotizaci\u00f3n"}>{"\u{1F5D1}\uFE0F"}</button>
                   </td>
                 </tr>
               ))}
@@ -182,11 +182,11 @@ function QuotesPanel({ setMessage }) {
         </div>
         <div className="pagination">
           <button className="btn btn-xs btn-outline" disabled={filters.page <= 1} onClick={() => setFilters({ ...filters, page: filters.page - 1 })}>
-            ‹ Anterior
+            {"\u2039 Anterior"}
           </button>
-          <span className="page-info">Página {filters.page} de {data.pages} · {data.total} registros</span>
+          <span className="page-info">{"P\u00e1gina"} {filters.page} de {data.pages} {"\u00b7"} {data.total} registros</span>
           <button className="btn btn-xs btn-outline" disabled={filters.page >= data.pages} onClick={() => setFilters({ ...filters, page: filters.page + 1 })}>
-            Siguiente ›
+            {"Siguiente \u203a"}
           </button>
         </div>
       </div>
@@ -200,14 +200,14 @@ function QuoteDetail({ quote, onClose }) {
   return (
     <div className="modal-backdrop" onClick={onClose}>
       <article className="modal" onClick={(e) => e.stopPropagation()}>
-        <button className="modal-close" onClick={onClose}>×</button>
-        <h2>Cotización #{quote.code}</h2>
+        <button className="modal-close" onClick={onClose}>{"\u00d7"}</button>
+        <h2>{"Cotizaci\u00f3n"} #{quote.code}</h2>
         <p><strong>Cliente:</strong> {quote.person?.firstName} {quote.person?.lastName}</p>
         <p><strong>Email:</strong> {quote.person?.email}</p>
-        <p><strong>Teléfono:</strong> {quote.person?.phone}</p>
-        <p><strong>Producto:</strong> {productLabels[quote.productType]} · {quote.planName}</p>
+        <p><strong>{"Tel\u00e9fono:"}</strong> {quote.person?.phone}</p>
+        <p><strong>Producto:</strong> {productLabels[quote.productType]} {"\u00b7"} {quote.planName}</p>
         <p><strong>Total:</strong> {money(quote.estimatedTotal)}</p>
-        <h3>Datos específicos</h3>
+        <h3>{"Datos espec\u00edficos"}</h3>
         <pre>{JSON.stringify(quote.productData?.data || {}, null, 2)}</pre>
         <h3>Extras</h3>
         <p>{quote.extras?.length ? quote.extras.map((extra) => extra.name).join(", ") : "Sin extras"}</p>
@@ -237,29 +237,56 @@ function PricingPanel({ setMessage }) {
     setMessage("Precios guardados");
   }
 
+  const groupedPlans = groupPricingItems(pricing.plans);
+  const groupedExtras = groupPricingItems(pricing.extras);
+
   return (
     <div className="admin-section">
       <div className="section-topbar"><h2>Precios</h2></div>
       <div className="config-grid">
         <div className="config-card">
           <h3>Planes</h3>
-          {pricing.plans.map((plan) => (
-            <div className="price-row" key={plan.id}>
-              <span>{productLabels[plan.productType]} · {plan.planName}</span>
-              <input type="number" className="form-input" value={plan.basePrice} onChange={(e) => update("plans", plan.id, "basePrice", e.target.value)} />
-              <input type="checkbox" checked={plan.active} onChange={(e) => update("plans", plan.id, "active", e.target.checked)} />
-            </div>
-          ))}
+          <div className="pricing-groups">
+            {groupedPlans.map(([productType, plans]) => (
+              <section className="pricing-group" key={productType}>
+                <div className="pricing-group-header">
+                  <h4>{productLabels[productType]}</h4>
+                  <span>{plans.length} planes</span>
+                </div>
+                <div className="pricing-group-body">
+                  {plans.map((plan) => (
+                    <div className="price-row" key={plan.id}>
+                      <span>{plan.planName}</span>
+                      <input type="number" className="form-input" value={plan.basePrice} onChange={(e) => update("plans", plan.id, "basePrice", e.target.value)} />
+                      <input type="checkbox" checked={plan.active} onChange={(e) => update("plans", plan.id, "active", e.target.checked)} />
+                    </div>
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
         </div>
         <div className="config-card">
           <h3>Extras</h3>
-          {pricing.extras.map((extra) => (
-            <div className="price-row" key={extra.id}>
-              <span>{productLabels[extra.productType]} · {extra.name}</span>
-              <input type="number" className="form-input" value={extra.price} onChange={(e) => update("extras", extra.id, "price", e.target.value)} />
-              <input type="checkbox" checked={extra.active} onChange={(e) => update("extras", extra.id, "active", e.target.checked)} />
-            </div>
-          ))}
+          <div className="pricing-groups">
+            {groupedExtras.map(([productType, extras]) => (
+              <section className="pricing-group" key={productType}>
+                <div className="pricing-group-header">
+                  <h4>{productLabels[productType]}</h4>
+                  <span>{extras.length} extras</span>
+                </div>
+                <div className="pricing-group-body">
+                  {extras.map((extra) => (
+                    <div className="price-row" key={extra.id}>
+                      <span>{extra.name}</span>
+                      <input type="number" className="form-input" value={extra.price} onChange={(e) => update("extras", extra.id, "price", e.target.value)} />
+                      <input type="checkbox" checked={extra.active} onChange={(e) => update("extras", extra.id, "active", e.target.checked)} />
+                    </div>
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
         </div>
       </div>
       <button className="btn btn-green" onClick={save}>Guardar precios</button>
@@ -267,8 +294,25 @@ function PricingPanel({ setMessage }) {
   );
 }
 
+function groupPricingItems(items) {
+  return Object.entries(
+    items.reduce((groups, item) => {
+      if (!groups[item.productType]) groups[item.productType] = [];
+      groups[item.productType].push(item);
+      return groups;
+    }, {})
+  );
+}
+
 function CompanyPanel({ setMessage }) {
   const [company, setCompany] = useState(null);
+  const companyFields = [
+    { key: "name", label: "Nombre de la empresa", hint: "Nombre visible de la marca en el sitio." },
+    { key: "email", label: "Correo electr\u00f3nico", hint: "Canal principal para recibir consultas." },
+    { key: "phone", label: "Tel\u00e9fono", hint: "N\u00famero de contacto para atenci\u00f3n comercial." },
+    { key: "address", label: "Direcci\u00f3n", hint: "Ubicaci\u00f3n comercial o punto de referencia." },
+    { key: "instagram", label: "Instagram", hint: "Enlace al perfil oficial de la empresa." }
+  ];
 
   useEffect(() => {
     api("/api/admin/company").then(setCompany).catch((error) => setMessage(error.message));
@@ -285,17 +329,33 @@ function CompanyPanel({ setMessage }) {
 
   return (
     <div className="admin-section">
-      <div className="section-topbar"><h2>Configuración</h2></div>
+      <div className="section-topbar"><h2>{"Configuraci\u00f3n"}</h2></div>
       <div className="config-grid">
-        <div className="config-card">
-          <h3>Datos de la empresa</h3>
-          {["name", "email", "phone", "address", "instagram"].map((field) => (
-            <div className="form-group" key={field}>
-              <label>{field}</label>
-              <input className="form-input" value={company[field] || ""} onChange={(e) => setCompany({ ...company, [field]: e.target.value })} />
+        <div className="config-card company-config-card">
+          <div className="company-config-head">
+            <div>
+              <h3>Datos de la empresa</h3>
+              <p>{"Actualiz\u00e1 la informaci\u00f3n institucional y de contacto que ven los clientes."}</p>
             </div>
-          ))}
-          <button className="btn btn-green" style={{ marginTop: "1rem" }} onClick={save}>Guardar cambios</button>
+            <span className="company-config-badge">Perfil comercial</span>
+          </div>
+          <div className="company-fields-grid">
+            {companyFields.map(({ key, label, hint }) => (
+              <div className="form-group company-form-group" key={key}>
+                <label>{label}</label>
+                <span className="company-field-hint">{hint}</span>
+                <input
+                  className="form-input company-form-input"
+                  value={company[key] || ""}
+                  onChange={(e) => setCompany({ ...company, [key]: e.target.value })}
+                />
+              </div>
+            ))}
+          </div>
+          <div className="company-config-actions">
+            <button className="btn btn-green" onClick={save}>Guardar cambios</button>
+            <span className="company-config-note">{"Los cambios se reflejan en los datos p\u00fablicos del sitio."}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -362,7 +422,7 @@ function UsersPanel({ setMessage }) {
               <input required type="email" className="form-input" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
             </div>
             <div className="form-group">
-              <label>Contraseña</label>
+              <label>{"Contrase\u00f1a"}</label>
               <input required className="form-input" value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} />
             </div>
             <div className="form-group">
