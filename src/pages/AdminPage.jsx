@@ -338,9 +338,9 @@ function UsersPanel({ setMessage }) {
           <div className="admin-users-list">
             {users.map((user) => (
               <div className="admin-user-row" key={user.id}>
-                <div className="user-avatar small">
+                <span className="user-avatar small">
                   {user.name.split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase()}
-                </div>
+                </span>
                 <div><strong>{user.name}</strong><p>{user.email}</p></div>
                 <span className={user.role === "EDITOR" ? "role-badge role-editor" : "role-badge"}>{user.role}</span>
                 <button className="btn btn-xs btn-outline" onClick={() => patch(user.id, { active: !user.active })}>

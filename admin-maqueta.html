@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel Admin - Seguros Timbues</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="admin-body">
+
+  <aside class="admin-sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <span class="logo-icon">S</span>
+      <span>Seguros Timbues</span>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="#" class="sidebar-link active" onclick="showSection('cotizaciones')">
+        <span>📋</span> Cotizaciones
+      </a>
+      <a href="#" class="sidebar-link" onclick="showSection('configuracion')">
+        <span>⚙️</span> Configuración
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <a href="index.html" class="sidebar-link">
+        <span>🌐</span> Ver sitio
+      </a>
+      <a href="#" class="sidebar-link logout">
+        <span>🚪</span> Salir
+      </a>
+    </div>
+  </aside>
+
+  <div class="admin-main">
+    <header class="admin-topbar">
+      <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+      <div class="topbar-title" id="topbar-title">Cotizaciones</div>
+      <div class="topbar-actions">
+        <div class="admin-user">
+          <div class="user-avatar">AP</div>
+          <span>Admin Panel</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="admin-section" id="section-cotizaciones">
+      <div class="section-topbar">
+        <h2>Cotizaciones</h2>
+        <a href="cotizacion-maqueta.html" target="_blank" class="btn btn-green">+ Nueva cotización</a>
+      </div>
+
+      <div class="filters-bar">
+        <input type="text" class="filter-input" placeholder="🔎 Buscar por cliente o vehículo..." />
+        <select class="filter-select">
+          <option>Todos los estados</option>
+          <option>Pendiente</option>
+          <option>Aprobada</option>
+          <option>Rechazada</option>
+        </select>
+        <select class="filter-select">
+          <option>Todos los planes</option>
+          <option>Básica</option>
+          <option>Intermedia</option>
+          <option>Completa</option>
+        </select>
+        <button class="btn btn-outline">Filtrar</button>
+      </div>
+
+      <div class="table-card">
+        <div class="table-responsive">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th><input type="checkbox" /></th>
+                <th>#</th>
+                <th>Cliente</th>
+                <th>Email</th>
+                <th>Vehículo</th>
+                <th>Año</th>
+                <th>Plan</th>
+                <th>Precio</th>
+                <th>Extras</th>
+                <th>Estado</th>
+                <th>Fecha</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>#1042</td>
+                <td>Juan García</td>
+                <td>juan@email.com</td>
+                <td>Toyota Corolla</td>
+                <td>2022</td>
+                <td>Básica</td>
+                <td>$150</td>
+                <td>Asistencia</td>
+                <td><span class="status-badge pending">Pendiente</span></td>
+                <td>02/05/2026</td>
+                <td class="actions-cell">
+                  <button class="btn btn-xs btn-green">✏️</button>
+                  <button class="btn btn-xs btn-outline">👁️</button>
+                  <button class="btn btn-xs btn-danger">🗑️</button>
+                </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>#1041</td>
+                <td>María López</td>
+                <td>maria@email.com</td>
+                <td>Ford Focus</td>
+                <td>2020</td>
+                <td>Intermedia</td>
+                <td>$200</td>
+                <td>Auto reemplazo</td>
+                <td><span class="status-badge approved">Aprobada</span></td>
+                <td>01/05/2026</td>
+                <td class="actions-cell">
+                  <button class="btn btn-xs btn-green">✏️</button>
+                  <button class="btn btn-xs btn-outline">👁️</button>
+                  <button class="btn btn-xs btn-danger">🗑️</button>
+                </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>#1040</td>
+                <td>Carlos Ruiz</td>
+                <td>carlos@email.com</td>
+                <td>BMW 320i</td>
+                <td>2023</td>
+                <td>Completa</td>
+                <td>$360</td>
+                <td>Lesiones, Llave</td>
+                <td><span class="status-badge approved">Aprobada</span></td>
+                <td>30/04/2026</td>
+                <td class="actions-cell">
+                  <button class="btn btn-xs btn-green">✏️</button>
+                  <button class="btn btn-xs btn-outline">👁️</button>
+                  <button class="btn btn-xs btn-danger">🗑️</button>
+                </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>#1039</td>
+                <td>Ana Martínez</td>
+                <td>ana@email.com</td>
+                <td>Renault Clio</td>
+                <td>2019</td>
+                <td>Básica</td>
+                <td>$150</td>
+                <td>-</td>
+                <td><span class="status-badge rejected">Rechazada</span></td>
+                <td>29/04/2026</td>
+                <td class="actions-cell">
+                  <button class="btn btn-xs btn-green">✏️</button>
+                  <button class="btn btn-xs btn-outline">👁️</button>
+                  <button class="btn btn-xs btn-danger">🗑️</button>
+                </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>#1038</td>
+                <td>Pedro Sánchez</td>
+                <td>pedro@email.com</td>
+                <td>VW Vento</td>
+                <td>2021</td>
+                <td>Intermedia</td>
+                <td>$220</td>
+                <td>Bonus</td>
+                <td><span class="status-badge pending">Pendiente</span></td>
+                <td>28/04/2026</td>
+                <td class="actions-cell">
+                  <button class="btn btn-xs btn-green">✏️</button>
+                  <button class="btn btn-xs btn-outline">👁️</button>
+                  <button class="btn btn-xs btn-danger">🗑️</button>
+                </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>#1037</td>
+                <td>Laura Fernández</td>
+                <td>laura@email.com</td>
+                <td>Peugeot 208</td>
+                <td>2022</td>
+                <td>Básica</td>
+                <td>$155</td>
+                <td>Asistencia</td>
+                <td><span class="status-badge approved">Aprobada</span></td>
+                <td>27/04/2026</td>
+                <td class="actions-cell">
+                  <button class="btn btn-xs btn-green">✏️</button>
+                  <button class="btn btn-xs btn-outline">👁️</button>
+                  <button class="btn btn-xs btn-danger">🗑️</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="pagination">
+          <button class="btn btn-xs btn-outline">‹ Anterior</button>
+          <span class="page-info">Página 1 de 8</span>
+          <button class="btn btn-xs btn-outline">Siguiente ›</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="admin-section hidden" id="section-configuracion">
+      <div class="section-topbar">
+        <h2>Configuración</h2>
+      </div>
+      <div class="config-grid">
+        <div class="config-card">
+          <h3>Precios de planes</h3>
+          <div class="form-group">
+            <label>Plan Básica ($/mes)</label>
+            <input type="number" value="150" class="form-input" />
+          </div>
+          <div class="form-group">
+            <label>Plan Intermedia ($/mes)</label>
+            <input type="number" value="200" class="form-input" />
+          </div>
+          <div class="form-group">
+            <label>Plan Completa ($/mes)</label>
+            <input type="number" value="360" class="form-input" />
+          </div>
+          <button class="btn btn-green">Guardar cambios</button>
+        </div>
+        <div class="config-card">
+          <h3>Extras y complementos</h3>
+          <div class="form-group">
+            <label>Asistencia en ruta ($/mes)</label>
+            <input type="number" value="15" class="form-input" />
+          </div>
+          <div class="form-group">
+            <label>Lesiones personales ($/mes)</label>
+            <input type="number" value="20" class="form-input" />
+          </div>
+          <div class="form-group">
+            <label>Auto de reemplazo ($/mes)</label>
+            <input type="number" value="25" class="form-input" />
+          </div>
+          <button class="btn btn-green">Guardar cambios</button>
+        </div>
+        <div class="config-card">
+          <h3>Datos de la empresa</h3>
+          <div class="form-group">
+            <label>Nombre de la empresa</label>
+            <input type="text" value="Car Insurance S.A." class="form-input" />
+          </div>
+          <div class="form-group">
+            <label>Email de contacto</label>
+            <input type="email" value="info@carinsurance.com" class="form-input" />
+          </div>
+          <div class="form-group">
+            <label>Teléfono</label>
+            <input type="text" value="0800-555-AUTO" class="form-input" />
+          </div>
+          <button class="btn btn-green">Guardar cambios</button>
+        </div>
+        <div class="config-card">
+          <h3>Administradores</h3>
+          <div class="admin-users-list">
+            <div class="admin-user-row">
+              <div class="user-avatar small">AP</div>
+              <div>
+                <strong>Admin Principal</strong>
+                <p>admin@carinsurance.com</p>
+              </div>
+              <span class="role-badge">Super Admin</span>
+            </div>
+            <div class="admin-user-row">
+              <div class="user-avatar small">MG</div>
+              <div>
+                <strong>Marcos Gómez</strong>
+                <p>marcos@carinsurance.com</p>
+              </div>
+              <span class="role-badge role-editor">Editor</span>
+            </div>
+          </div>
+          <button class="btn btn-outline" style="margin-top:1rem">+ Agregar administrador</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="toast" id="toast">Guardado exitosamente ✅</div>
+  <script src="main.js"></script>
+</body>
+</html>
