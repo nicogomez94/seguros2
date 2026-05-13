@@ -3,8 +3,7 @@ services:
     name: seguros2
     runtime: node
     plan: free
-    buildCommand: npm ci && npm run build
-    preDeployCommand: npx prisma migrate deploy
+    buildCommand: npm ci && npx prisma migrate deploy && npm run build
     startCommand: npm start
     healthCheckPath: /api/health
     initialDeployHook: npm run prisma:seed
