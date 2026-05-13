@@ -21,10 +21,19 @@ export default function HomePage() {
             </div>
           </div>
           <div className="hero-image">
-            <img
-              src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900&q=80"
-              alt="Auto asegurado"
-            />
+            <div className="hero-img-scene">
+              <div className="hero-img-oval"></div>
+              <img
+                className="hero-img-moto"
+                src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=580&q=80"
+                alt="Moto asegurada"
+              />
+              <img
+                className="hero-img-car"
+                src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=720&q=80"
+                alt="Auto asegurado"
+              />
+            </div>
           </div>
         </div>
       </section>

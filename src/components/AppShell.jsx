@@ -17,7 +17,7 @@ export default function AppShell() {
       <nav className="navbar">
         <div className="nav-container">
           <Link className="nav-logo" to="/" onClick={close}>
-            <span className="logo-icon">🦅</span> Seguros Timbúes
+            <span className="logo-icon">S</span> Seguros Timbues
           </Link>
           <ul className={open ? "nav-links open" : "nav-links"}>
             <li><NavLink to="/" end onClick={close}>Inicio</NavLink></li>
@@ -27,7 +27,7 @@ export default function AppShell() {
           </ul>
           <div className="nav-cta">
             <NavLink
-              className={({ isActive }) => isActive ? "btn btn-outline active-link" : "btn btn-outline"}
+              className={({ isActive }) => (isActive ? "btn btn-outline active-link" : "btn btn-outline")}
               to="/cotizar"
               onClick={close}
             >
@@ -37,7 +37,7 @@ export default function AppShell() {
               Admin
             </NavLink>
           </div>
-          <button className="hamburger" onClick={() => setOpen((v) => !v)} aria-label="Abrir menú">
+          <button className="hamburger" onClick={() => setOpen((value) => !value)} aria-label="Abrir menu">
             &#9776;
           </button>
         </div>
@@ -48,7 +48,7 @@ export default function AppShell() {
       <footer className="footer">
         <div className="container footer-grid">
           <div className="footer-col">
-            <h4>Navegación</h4>
+            <h4>Navegacion</h4>
             <ul>
               <li><Link to="/">Inicio</Link></li>
               <li><Link to="/cotizar">Cotizar</Link></li>
@@ -59,9 +59,9 @@ export default function AppShell() {
           <div className="footer-col">
             <h4>Contacto</h4>
             <ul>
-              <li>📞 {company?.phone || "0800-666-8400"}</li>
-              <li>✉ {company?.email || "info@segurostimbues.com.ar"}</li>
-              <li>📍 {company?.address || "Timbúes, Santa Fe, Argentina"}</li>
+              <li>Tel. {company?.phone || "0800-666-8400"}</li>
+              <li>Email {company?.email || "info@segurostimbues.com.ar"}</li>
+              <li>{company?.address || "Timbues, Santa Fe, Argentina"}</li>
             </ul>
           </div>
           <div className="footer-col">
@@ -82,14 +82,21 @@ export default function AppShell() {
             <ul>
               <li><Link to="/sobre-nosotros">Nuestra empresa</Link></li>
               <li><Link to="/servicios">Nuestros servicios</Link></li>
-              <li>
-                <a href="https://zigodev.com.ar" target="_blank" rel="noreferrer">Hecho por ZigoDev</a>
-              </li>
             </ul>
           </div>
         </div>
+        <div className="footer-credit">
+          <a
+            className="footer-zigodev-btn"
+            href="https://zigodev.com.ar"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Hecho por ZigoDev
+          </a>
+        </div>
         <div className="footer-bottom">
-          © 2026 Seguros Timbúes. Agente de seguros a nivel nacional.
+          &copy; 2026 Seguros Timbues. Agente de seguros a nivel nacional.
         </div>
       </footer>
     </>
