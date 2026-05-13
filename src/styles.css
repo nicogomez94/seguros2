@@ -558,6 +558,13 @@ img { max-width: 100%; display: block; }
   transition: all 0.2s;
   cursor: pointer;
   text-decoration: none;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  appearance: none;
+  -webkit-appearance: none;
+  border-left: 3px solid transparent;
 }
 .sidebar-link:hover, .sidebar-link.active { background: rgba(255,255,255,0.07); color: #fff; border-left: 3px solid var(--green); }
 .sidebar-link.active { color: var(--green); }
@@ -758,6 +765,21 @@ pre { background: var(--gray-bg); border-radius: 7px; padding: 12px; overflow: a
 .login-card { width: min(430px, 100%); background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 36px; box-shadow: var(--shadow-lg); display: grid; gap: 16px; }
 .login-card h1 { margin: 8px 0; color: var(--dark); font-size: 1.6rem; }
 .login-card label { font-weight: 600; font-size: 0.9rem; color: var(--text); display: flex; flex-direction: column; gap: 6px; }
+.login-card input {
+  width: 100%;
+  min-width: 0;
+  padding: 11px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 7px;
+  font-size: 0.95rem;
+  font-family: var(--font);
+  background: #fff;
+}
+.login-card input:focus {
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(196,30,42,0.12);
+}
 
 /* Alert / toast */
 .alert { background: #fff4d7; color: #775400; border: 1px solid #ffe29c; padding: 12px 14px; border-radius: 7px; }
@@ -779,9 +801,14 @@ pre { background: var(--gray-bg); border-radius: 7px; padding: 12px; overflow: a
   .admin-body .admin-main, .admin-shell .admin-main { margin-left: 0 !important; }
   .admin-sidebar { transform: translateX(-240px) !important; }
   .admin-sidebar.open { transform: translateX(0) !important; }
+  .admin-topbar { padding: 0 16px; }
+  .admin-section { padding: 24px 16px; }
+  .topbar-actions { gap: 10px; }
+  .toast-inline { display: none; }
   .product-grid { grid-template-columns: 1fr; }
   .admin-grid.two { grid-template-columns: 1fr; }
   .user-row { grid-template-columns: 1fr; }
+  .login-card { padding: 28px 22px; }
 }
 
 /* ================================

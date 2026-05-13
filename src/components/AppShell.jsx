@@ -64,9 +64,6 @@ export default function AppShell() {
             >
               Cotizar
             </NavLink>
-            <NavLink className="btn btn-sm-ghost" to="/admin" onClick={close}>
-              Admin
-            </NavLink>
           </div>
           <button className="hamburger" onClick={() => setOpen((value) => !value)} aria-label="Abrir menu">
             &#9776;
