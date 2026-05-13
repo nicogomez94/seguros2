@@ -23,7 +23,6 @@ export default function AppShell() {
             <li><NavLink to="/" end onClick={close}>Inicio</NavLink></li>
             <li><NavLink to="/sobre-nosotros" onClick={close}>Sobre nosotros</NavLink></li>
             <li><NavLink to="/servicios" onClick={close}>Servicios</NavLink></li>
-            <li><NavLink to="/blog" onClick={close}>Blog</NavLink></li>
             <li><NavLink to="/contacto" onClick={close}>Contacto</NavLink></li>
           </ul>
           <div className="nav-cta">
@@ -82,7 +81,7 @@ export default function AppShell() {
             <h4>Institucional</h4>
             <ul>
               <li><Link to="/sobre-nosotros">Nuestra empresa</Link></li>
-              <li><Link to="/blog">Novedades</Link></li>
+              <li><Link to="/servicios">Nuestros servicios</Link></li>
               <li>
                 <a href="https://zigodev.com.ar" target="_blank" rel="noreferrer">Hecho por ZigoDev</a>
               </li>

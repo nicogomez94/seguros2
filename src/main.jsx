@@ -2,12 +2,13 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import AppShell from "./components/AppShell.jsx";
+import AboutPage from "./pages/AboutPage.jsx";
 import AdminPage from "./pages/AdminPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import QuotePage from "./pages/QuotePage.jsx";
-import StaticPage from "./pages/StaticPage.jsx";
+import ServicesPage from "./pages/ServicesPage.jsx";
 import "./styles.css";
 
 createRoot(document.getElementById("root")).render(
@@ -16,9 +17,8 @@ createRoot(document.getElementById("root")).render(
       <Routes>
         <Route element={<AppShell />}>
           <Route path="/" element={<HomePage />} />
-          <Route path="/sobre-nosotros" element={<StaticPage type="about" />} />
-          <Route path="/servicios" element={<StaticPage type="services" />} />
-          <Route path="/blog" element={<StaticPage type="blog" />} />
+          <Route path="/sobre-nosotros" element={<AboutPage />} />
+          <Route path="/servicios" element={<ServicesPage />} />
           <Route path="/contacto" element={<ContactPage />} />
           <Route path="/cotizar" element={<QuotePage />} />
         </Route>
