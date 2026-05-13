@@ -1,0 +1,160 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum AdminRole {
+  SUPER_ADMIN
+  EDITOR
+}
+
+enum QuoteStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum EmailStatus {
+  SENT
+  FAILED
+  SKIPPED
+}
+
+enum ProductType {
+  AUTO
+  MOTO
+  SALUD
+  HOGAR
+  BICICLETA
+  COMERCIO
+  RESPONSABILIDAD_CIVIL
+}
+
+model AdminUser {
+  id           String       @id @default(uuid())
+  email        String       @unique
+  name         String
+  passwordHash String
+  role         AdminRole    @default(EDITOR)
+  active       Boolean      @default(true)
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+  sessions     Session[]
+}
+
+model Session {
+  id        String    @id @default(uuid())
+  token     String    @unique
+  userId    String
+  user      AdminUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime  @default(now())
+}
+
+model Quote {
+  id             Int               @id @default(autoincrement())
+  code           String            @unique
+  productType    ProductType
+  planCode       String
+  planName       String
+  estimatedTotal Int
+  status         QuoteStatus       @default(PENDING)
+  createdAt      DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
+  person         QuotePerson?
+  productData    QuoteProductData?
+  extras         QuoteExtra[]
+  emailLogs      EmailLog[]
+}
+
+model QuotePerson {
+  id          Int      @id @default(autoincrement())
+  quoteId     Int      @unique
+  quote       Quote    @relation(fields: [quoteId], references: [id], onDelete: Cascade)
+  firstName   String
+  lastName    String
+  email       String
+  phone       String
+  dni         String
+  birthDate   DateTime?
+  address     String
+}
+
+model QuoteProductData {
+  id      Int   @id @default(autoincrement())
+  quoteId Int   @unique
+  quote   Quote @relation(fields: [quoteId], references: [id], onDelete: Cascade)
+  data    Json
+}
+
+model QuoteExtra {
+  id      Int    @id @default(autoincrement())
+  quoteId Int
+  quote   Quote  @relation(fields: [quoteId], references: [id], onDelete: Cascade)
+  code    String
+  name    String
+  price   Int
+}
+
+model PricingPlan {
+  id          Int         @id @default(autoincrement())
+  productType ProductType
+  planCode    String
+  planName    String
+  basePrice   Int
+  description String
+  active      Boolean     @default(true)
+  updatedAt   DateTime    @updatedAt
+
+  @@unique([productType, planCode])
+}
+
+model PricingExtra {
+  id          Int         @id @default(autoincrement())
+  productType ProductType
+  code        String
+  name        String
+  price       Int
+  active      Boolean     @default(true)
+  updatedAt   DateTime    @updatedAt
+
+  @@unique([productType, code])
+}
+
+model CompanySettings {
+  id        Int      @id @default(1)
+  name      String
+  email     String
+  phone     String
+  address   String
+  instagram String
+  updatedAt DateTime @updatedAt
+}
+
+model ContactRequest {
+  id        Int        @id @default(autoincrement())
+  name      String
+  email     String
+  phone     String
+  subject   String
+  message   String
+  createdAt DateTime   @default(now())
+  emailLogs EmailLog[]
+}
+
+model EmailLog {
+  id               Int             @id @default(autoincrement())
+  to               String
+  subject          String
+  status           EmailStatus
+  error            String?
+  quoteId          Int?
+  quote            Quote?          @relation(fields: [quoteId], references: [id], onDelete: SetNull)
+  contactRequestId Int?
+  contactRequest   ContactRequest? @relation(fields: [contactRequestId], references: [id], onDelete: SetNull)
+  createdAt        DateTime        @default(now())
+}

@@ -1,6 +1,7 @@
 services:
   - type: web
     name: seguros2
-    runtime: static
-    buildCommand: "true"
-    staticPublishPath: .
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build && npx prisma generate
+    startCommand: npm start

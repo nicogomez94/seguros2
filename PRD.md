@@ -1,71 +1,168 @@
-Titulo: Alcance del Proyecto
-Proyecto: Seguros Timbues
+Alcance del Proyecto
+Seguros Timbúes
 Fecha: 8 de mayo de 2026
-Preparado por ZigoDev
+Preparado por: ZigoDev
 
-# Alcance del Proyecto
+1. Objetivo del Proyecto
+Se desarrollará una plataforma web para Seguros Timbúes, orientada a:
+Presentar la marca y sus servicios.
+Mostrar distintos tipos de coberturas y seguros disponibles.
+Permitir que potenciales clientes soliciten cotizaciones de manera simple y guiada.
+Contar con un panel administrativo visual para visualizar información comercial y operativa.
+El objetivo principal es crear una experiencia moderna, clara y optimizada tanto para escritorio como para dispositivos móviles.
 
-## 1. Que vamos a hacer
+2. Sitio Web Público
+La versión pública del sitio incluirá las siguientes secciones y funcionalidades:
+Página de Inicio
+Presentación de la marca y propuesta comercial.
+Mensaje principal con llamados a la acción para solicitar cotización.
+Diseño moderno y responsive.
+Navegación Principal
+Menú superior con accesos a:
+Inicio
+Sobre Nosotros
+Servicios
+Blog
+Contacto
+Cotizar
+Admin
+Planes Destacados
+Se mostrarán distintas opciones de cobertura, incluyendo:
+Seguro Automotor
+Seguro de Salud
+Seguro de Hogar
+Cada plan contará con:
+Breve descripción
+Beneficios destacados
+Botón para iniciar cotización
+Secciones Informativas
+Bloque de ayuda para usuarios que no sepan qué seguro elegir.
+Sección de asesoramiento personalizado.
+Listado de tipos de seguros ofrecidos.
+Indicadores de confianza:
+Clientes satisfechos
+Cobertura nacional
+Atención 24 hs
+Referencia institucional a SSN
+Footer
+Incluye:
+Navegación rápida
+Datos de contacto
+Redes sociales
+Enlaces institucionales
+Adaptación Mobile
+Diseño responsive optimizado para celulares y tablets.
+Menú desplegable para navegación móvil.
 
-Se desarrollara una pagina web para Seguros Timbues orientada a presentar la marca, mostrar opciones de seguros y permitir que una persona solicite una cotizacion.
+3. Sistema de Cotización
+Se desarrollará una página específica para solicitar cotizaciones mediante un formulario guiado de múltiples pasos.
+Paso 1 — Datos del Vehículo
+El usuario podrá ingresar:
+Marca
+Modelo
+Año
+Patente
+Tipo de uso
+Kilometraje
+Además, podrá seleccionar el tipo de cobertura:
+Básica
+Intermedia
+Completa
+Paso 2 — Datos Personales
+Formulario para cargar:
+Nombre
+Apellido
+Email
+Teléfono
+DNI
+Fecha de nacimiento
+Domicilio
+Paso 3 — Extras de Cobertura
+Opciones adicionales disponibles:
+Asistencia en ruta
+Lesiones personales
+Auto de reemplazo
+Bonus
+Modificaciones
+Cobertura por llave perdida
+El sistema mostrará un cálculo visual estimado según:
+Plan seleccionado
+Extras agregados
+Paso 4 — Confirmación
+Pantalla final indicando:
+Confirmación de envío
+Mensaje de contacto
+Aviso de respuesta dentro de las próximas 24 horas hábiles
+Confirmación de recepción vía email
 
-Tambien se incluye un panel administrativo visual para consultar informacion comercial, cotizaciones y configuracion.
+4. Panel de Administración
+El sistema incluirá un panel administrativo visual orientado a consulta y visualización de información.
+Gestión de Cotizaciones
+Incluye:
+Tabla de cotizaciones
+Buscador
+Filtros por estado y plan
+Paginación
+Acciones visuales
+Configuración General
+Configuración visual para:
+Precios de planes
+Extras
+Datos de empresa
+Administradores
+Acciones y Navegación
+Botones visuales para guardar cambios
+Confirmaciones visuales
+Acceso rápido para volver al sitio público
 
-## 2. Que incluye la pagina publica
+5. Exclusiones del Proyecto
+El presente alcance no incluye:
+Conexión real a base de datos.
+Envío real de emails.
+Integraciones reales con:
+WhatsApp
+CRM
+Pasarelas de pago
+Sistemas externos de seguros
+Login real ni gestión avanzada de permisos.
+Alta, edición o eliminación real de:
+Cotizaciones
+Clientes
+Pólizas
+Validación legal de:
+Textos
+Coberturas
+Precios
+Requisitos regulatorios de SSN
+Carga real de archivos o documentación.
+Blog funcional.
+Desarrollo completo de páginas internas:
+Sobre Nosotros
+Servicios
+Contacto
+Privacidad
+Términos y Condiciones
+FAQ
 
-- Pagina de inicio con nombre de marca, mensaje principal y llamados a cotizar.
-- Menu superior con accesos a Inicio, Sobre nosotros, Servicios, Blog, Contacto, Cotizar y Admin.
-- Seccion de planes destacados para seguro de auto, plan de salud y seguro de hogar.
-- Botones para iniciar una cotizacion desde el inicio y desde cada plan.
-- Bloque de ayuda para usuarios que no saben que seguro necesitan.
-- Seccion de asesoramiento personalizado con listado de tipos de seguros ofrecidos.
-- Indicadores de confianza, como clientes satisfechos, cobertura nacional, atencion 24 horas y referencia a SSN.
-- Testimonios de clientes.
-- Footer con navegacion, datos de contacto, redes sociales y enlaces institucionales.
-- Adaptacion visual para navegacion desde celular mediante menu desplegable.
+6. Puntos Pendientes de Confirmación
+Antes de la etapa final de desarrollo deberán confirmarse los siguientes puntos:
+Nombre definitivo de la marca y uso de acentos en comunicación.
+Datos reales de contacto:
+Teléfono
+Email
+Dirección
+Redes sociales
+Confirmación de precios reales o valores de ejemplo.
+Tipos finales de seguros ofrecidos.
+Método real de recepción de cotizaciones:
+Email
+WhatsApp
+Panel interno
+Alcance definitivo del panel administrativo:
+Demo visual
+Sistema funcional con usuarios y permisos
+Requisitos legales y textos regulatorios.
+Validación y aprobación de testimonios.
 
-## 3. Que incluye la cotizacion
-
-- Pagina especifica para cotizar un seguro.
-- Formulario dividido en cuatro pasos.
-- Paso 1 para cargar datos del vehiculo: marca, modelo, anio, patente, uso y kilometraje.
-- Seleccion de cobertura basica, intermedia o completa.
-- Paso 2 para cargar datos personales: nombre, apellido, email, telefono, DNI, fecha de nacimiento y domicilio.
-- Paso 3 para agregar extras a la cobertura.
-- Extras disponibles: asistencia en ruta, lesiones personales, auto de reemplazo, bonus, modificaciones y llave perdida.
-- Calculo visual del precio estimado segun plan y extras seleccionados.
-- Paso 4 con confirmacion de envio de cotizacion.
-- Mensaje final indicando que el usuario recibira un email y que un asesor se comunicara dentro de las proximas 24 horas habiles.
-
-## 4. Panel de administracion
-
-- Seccion de cotizaciones con listado, buscador, filtros por estado y plan, paginacion y acciones visuales.
-- Seccion de configuracion para precios de planes, extras, datos de empresa y administradores.
-- Botones visuales para guardar cambios y mostrar confirmacion.
-- Acceso para volver al sitio publico.
-
-## 5. Que no incluye
-
-- No incluye conexion real con una base de datos.
-- No incluye envio real de emails.
-- No incluye integracion real con WhatsApp, CRM, pasarela de pago o sistema externo de seguros.
-- No incluye login real ni control de permisos para administradores.
-- No incluye alta, edicion o eliminacion real de cotizaciones.
-- No incluye validacion legal de textos, coberturas, precios o datos requeridos por SSN.
-- No incluye carga real de archivos, polizas, imagenes o documentacion.
-- No incluye blog funcional ni paginas internas completas de Sobre nosotros, Servicios, Contacto, Privacidad, Terminos o FAQ.
-
-## 6. Puntos a confirmar
-
-- Confirmar si el nombre final de la marca es "Seguros Timbues" y si debe llevar acento en la comunicacion.
-- Confirmar datos reales de contacto: telefono, email, direccion y redes sociales.
-- Confirmar si los precios mostrados son reales o solo ejemplos comerciales.
-- Confirmar que tipos de seguros deben ofrecerse en la version final.
-- Confirmar si la cotizacion debe enviarse por email, WhatsApp, CRM o quedar guardada en un panel real.
-- Confirmar si el panel admin sera solo demostrativo o si debe funcionar con usuarios, base de datos y permisos.
-- Confirmar textos legales requeridos para operar como agente/productor de seguros.
-- Confirmar si los testimonios son reales o deben reemplazarse por contenido aprobado.
-
-## 7. Cierre
-
-Una vez aprobado este alcance, cualquier funcionalidad adicional, integracion externa, cambio de contenido o modulo nuevo se toma como aparte.
+7. Consideraciones Finales
+Una vez aprobado este documento, cualquier funcionalidad adicional, integración externa, nuevo módulo o cambio significativo de alcance será presupuestado y planificado por separado.
