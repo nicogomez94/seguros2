@@ -210,40 +210,40 @@ img { max-width: 100%; display: block; }
   height: 84%;
   top: 8%;
   left: 8%;
-  background: #1CBFB4;
+  background: #9f1b1b;
   border-radius: 50%;
   z-index: 0;
 }
 .hero-img-moto {
-  position: absolute;
-  width: 60%;
-  height: 50%;
-  top: 3%;
-  right: 0;
-  z-index: 2;
-  object-fit: cover;
-  object-position: center 60%;
-  border-radius: 14px;
-  filter: drop-shadow(0 6px 18px rgba(0,0,0,0.22));
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    top: 45%;
+    right: -135px;
+    z-index: 2;
+    object-fit: cover;
+    object-position: center 60%;
+    border-radius: 14px;
+    filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.22));
 }
 .hero-img-car {
-  position: absolute;
-  width: 76%;
-  height: 58%;
-  bottom: 0;
-  left: 0;
-  z-index: 3;
-  object-fit: cover;
-  object-position: center 40%;
-  border-radius: 14px;
-  filter: drop-shadow(0 8px 28px rgba(0,0,0,0.30));
+    position: absolute;
+    /* width: 90%; */
+    height: 60%;
+    bottom: 90px;
+    left: 0;
+    z-index: 1;
+    /* object-fit: cover; */
+    /* object-position: center 40%; */
+    border-radius: 14px;
+    filter: drop-shadow(0 8px 28px rgba(0, 0, 0, 0.30));
 }
 
 /* ================================
    PLANES
 ================================ */
 .planes { padding: 72px 0; background: var(--gray-bg); }
-.planes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.planes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; }
 .plan-card {
   background: #fff;
   border-radius: var(--radius-lg);
@@ -291,7 +291,7 @@ img { max-width: 100%; display: block; }
   min-height: 420px;
   gap: 0;
 }
-.upgrades-text { padding: 60px 48px 60px 24px; }
+.upgrades-text { padding: 60px 48px 60px 0; }
 .upgrades-text h2 { font-size: 2rem; font-weight: 800; margin-bottom: 28px; line-height: 1.3; }
 .upgrades-list { display: flex; flex-direction: column; gap: 14px; }
 .upgrades-list li { font-size: 1rem; opacity: 0.9; display: flex; align-items: center; gap: 10px; }
@@ -674,8 +674,9 @@ img { max-width: 100%; display: block; }
   .hero-title { font-size: 3.8rem; }
   .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .planes-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+  .planes-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
   .upgrades-grid { grid-template-columns: 1fr; }
+  .upgrades-text { padding: 40px 24px 0; }
   .upgrades-image { height: 280px; }
   .config-grid { grid-template-columns: 1fr; }
 }
@@ -781,4 +782,17 @@ pre { background: var(--gray-bg); border-radius: 7px; padding: 12px; overflow: a
   .product-grid { grid-template-columns: 1fr; }
   .admin-grid.two { grid-template-columns: 1fr; }
   .user-row { grid-template-columns: 1fr; }
+}
+
+/* ================================
+   ENTRANCE ANIMATIONS
+================================ */
+.will-animate {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.will-animate.in-view {
+  opacity: 1;
+  transform: translateY(0);
 }

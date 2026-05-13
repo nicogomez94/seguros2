@@ -1,6 +1,18 @@
 import { Link } from "react-router-dom";
+import motoImage from "../assets/moto.png";
+import trackerImage from "../assets/tracker.png";
 
 export default function HomePage() {
+  const featuredPlans = [
+    { icon: "🚗", title: "Seguro de Auto", price: "$35.000", to: "/cotizar?producto=AUTO", cta: "Cotizar" },
+    { icon: "🏍️", title: "Seguro de Moto", price: "$12.500", to: "/cotizar?producto=MOTO", cta: "Cotizar" },
+    { icon: "🩺", title: "Accidentes Personales", price: "$13.000", to: "/contacto", cta: "Consultar" },
+    { icon: "🏠", title: "Seguro de Hogar", price: "$34.000", to: "/cotizar?producto=HOGAR", cta: "Cotizar" },
+    { icon: "🚲", title: "Seguro de Bicicleta", price: "$20.000", to: "/cotizar?producto=BICICLETA", cta: "Cotizar" },
+    { icon: "👜", title: "Bolso Protegido", price: "$15.000", to: "/contacto", cta: "Consultar" },
+    { icon: "✈️", title: "Seguro para Viajes", price: "$20.000", to: "/contacto", cta: "Consultar" },
+  ];
+
   return (
     <main>
       {/* HERO */}
@@ -9,7 +21,7 @@ export default function HomePage() {
           <div className="hero-content">
             <h1 className="hero-title">Seguros<br />Timbúes</h1>
             <p className="hero-price">
-              Cobertura desde <strong>$150</strong>/mes
+              Coberturas desde <strong>$12.500</strong>
             </p>
             <p className="hero-desc">
               Agente de seguros a nivel nacional en Argentina. Auto, salud, hogar,
@@ -25,12 +37,12 @@ export default function HomePage() {
               <div className="hero-img-oval"></div>
               <img
                 className="hero-img-moto"
-                src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=580&q=80"
+                src={motoImage}
                 alt="Moto asegurada"
               />
               <img
                 className="hero-img-car"
-                src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=720&q=80"
+                src={trackerImage}
                 alt="Auto asegurado"
               />
             </div>
@@ -45,31 +57,21 @@ export default function HomePage() {
             Planes destacados
           </h2>
           <p className="text-center subtitle">
-            Opciones claras para resolver rápido la protección que necesitás.
+            Precios base orientativos para resolver rápido la protección que necesitás.
+          </p>
+          <p className="text-center subtitle" style={{ marginTop: "-8px" }}>
+            Coberturas médicas desde $60.000.
           </p>
           <div className="planes-grid">
-            <div className="plan-card">
-              <div className="plan-icon">🚗</div>
-              <h3>Seguro de Auto</h3>
-              <div className="plan-price">desde <strong>$150</strong>/mes</div>
-              <p className="plan-desc">Responsabilidad civil, robo parcial e incendio total.</p>
-              <Link to="/cotizar?producto=AUTO" className="btn btn-outline btn-full">Cotizar</Link>
-            </div>
-            <div className="plan-card plan-featured">
-              <span className="badge badge-white">Más popular</span>
-              <div className="plan-icon">🏥</div>
-              <h3>Seguro de Salud</h3>
-              <div className="plan-price">desde <strong>$200</strong>/mes</div>
-              <p className="plan-desc">Cobertura médica integral para toda la familia.</p>
-              <Link to="/cotizar?producto=SALUD" className="btn btn-white btn-full">Cotizar</Link>
-            </div>
-            <div className="plan-card">
-              <div className="plan-icon">🏠</div>
-              <h3>Seguro de Hogar</h3>
-              <div className="plan-price">desde <strong>$180</strong>/mes</div>
-              <p className="plan-desc">Protección integral para tu casa: incendio, robo y daños.</p>
-              <Link to="/cotizar?producto=HOGAR" className="btn btn-outline btn-full">Cotizar</Link>
-            </div>
+            {featuredPlans.map((plan) => (
+              <div className="plan-card" key={plan.title}>
+                <div className="plan-icon">{plan.icon}</div>
+                <h3>{plan.title}</h3>
+                <div className="plan-price">desde <strong>{plan.price}</strong></div>
+                <p className="plan-desc">Precio base sujeto a cobertura, perfil y condiciones de contratación.</p>
+                <Link to={plan.to} className="btn btn-outline btn-full">{plan.cta}</Link>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -88,6 +90,7 @@ export default function HomePage() {
 
       {/* UPGRADES */}
       <section className="upgrades">
+        <div className="container">
         <div className="upgrades-grid">
           <div className="upgrades-text">
             <h2>Complementos que<br />marcan la diferencia</h2>
@@ -105,6 +108,7 @@ export default function HomePage() {
               alt="Auto con cobertura"
             />
           </div>
+        </div>
         </div>
       </section>
 
@@ -142,10 +146,10 @@ export default function HomePage() {
           <h2 className="text-center">Lo que dicen nuestros clientes</h2>
           <div className="testimonials-grid">
             {[
-              { name: "Marcela González", initials: "MG", date: "Marzo 2026",    text: "Accedí a mi plan de salud sin complicaciones. El asesoramiento fue excelente." },
-              { name: "Lucas Ramírez",    initials: "LR", date: "Febrero 2026",  text: "Conseguí un mejor seguro de auto. Rápido, claro y con buen precio." },
-              { name: "Juan Ferreyra",    initials: "JF", date: "Enero 2026",    text: "Tuve un siniestro y el equipo estuvo disponible durante todo el proceso." },
-              { name: "Valeria Pérez",    initials: "VP", date: "Diciembre 2025",text: "Tramitaron todo de forma simple y el plan quedó mejor que el anterior." },
+              { name: "Marcela González", initials: "MG", date: "Marzo 2026", text: "Accedí a mi plan de salud sin complicaciones. El asesoramiento fue excelente." },
+              { name: "Lucas Ramírez", initials: "LR", date: "Febrero 2026", text: "Conseguí un mejor seguro de auto. Rápido, claro y con buen precio." },
+              { name: "Juan Ferreyra", initials: "JF", date: "Enero 2026", text: "Tuve un siniestro y el equipo estuvo disponible durante todo el proceso." },
+              { name: "Valeria Pérez", initials: "VP", date: "Diciembre 2025", text: "Tramitaron todo de forma simple y el plan quedó mejor que el anterior." },
             ].map(({ name, initials, date, text }) => (
               <div className="testimonial-card" key={name}>
                 <p>"{text}"</p>

@@ -98,8 +98,9 @@ export default function ServicesPage() {
 
       {/* COMPLEMENTOS */}
       <section className="upgrades">
+        <div className="container">
         <div className="upgrades-grid">
-          <div className="upgrades-text" style={{ paddingLeft: "48px" }}>
+          <div className="upgrades-text">
             <h2>Complementos que<br />marcan la diferencia</h2>
             <ul className="upgrades-list">
               <li><span>🔧</span> Asistencia en ruta 24 hs</li>
@@ -115,6 +116,7 @@ export default function ServicesPage() {
               alt="Coberturas adicionales"
             />
           </div>
+        </div>
         </div>
       </section>
 

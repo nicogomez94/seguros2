@@ -100,8 +100,9 @@ export default function AboutPage() {
 
       {/* DARK FEATURE */}
       <section className="upgrades">
+        <div className="container">
         <div className="upgrades-grid">
-          <div className="upgrades-text" style={{ paddingLeft: "48px" }}>
+          <div className="upgrades-text">
             <h2>Un asesor a tu lado<br />en todo momento</h2>
             <ul className="upgrades-list">
               <li><span>📞</span> Atención personalizada antes de contratar</li>
@@ -117,6 +118,7 @@ export default function AboutPage() {
               alt="Asesor de seguros"
             />
           </div>
+        </div>
         </div>
       </section>
 

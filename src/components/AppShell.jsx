@@ -1,14 +1,45 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { api } from "../lib/api.js";
 
 export default function AppShell() {
   const [open, setOpen] = useState(false);
   const [company, setCompany] = useState(null);
+  const location = useLocation();
 
   useEffect(() => {
     api("/api/public/company").then(setCompany).catch(() => null);
   }, []);
+
+  useEffect(() => {
+    let sections = [];
+    let observer;
+
+    const frame = requestAnimationFrame(() => {
+      sections = Array.from(document.querySelectorAll("main section"));
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in-view");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
+      );
+      sections.forEach((section) => {
+        section.classList.add("will-animate");
+        observer.observe(section);
+      });
+    });
+
+    return () => {
+      cancelAnimationFrame(frame);
+      sections.forEach((s) => s.classList.remove("will-animate", "in-view"));
+      if (observer) observer.disconnect();
+    };
+  }, [location.pathname]);
 
   const close = () => setOpen(false);
 

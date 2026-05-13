@@ -334,7 +334,7 @@ img { max-width: 100%; display: block; }
 /* ================================
    STEPS
 ================================ */
-.steps-section { padding: 40px 0 0; background: #fff; }
+.steps-section { padding: 40px 40px; background: #fff; }
 .steps {
   display: flex;
   align-items: center;
