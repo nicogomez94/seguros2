@@ -160,15 +160,15 @@ function QuotesPanel({ setMessage }) {
             <tbody>
               {data.items.map((quote) => (
                 <tr key={quote.id}>
-                  <td>#{quote.code}</td>
-                  <td>{quote.person?.firstName} {quote.person?.lastName}</td>
-                  <td>{quote.person?.email}</td>
-                  <td>{productLabels[quote.productType]}</td>
-                  <td>{quote.planName}</td>
-                  <td>{money(quote.estimatedTotal)}</td>
-                  <td><span className={"status-badge " + statusCls(quote.status)}>{statuses[quote.status]}</span></td>
-                  <td>{new Date(quote.createdAt).toLocaleDateString("es-AR")}</td>
-                  <td className="actions-cell">
+                  <td data-label="#">#{quote.code}</td>
+                  <td data-label="Cliente">{quote.person?.firstName} {quote.person?.lastName}</td>
+                  <td data-label="Email">{quote.person?.email}</td>
+                  <td data-label="Producto">{productLabels[quote.productType]}</td>
+                  <td data-label="Plan">{quote.planName}</td>
+                  <td data-label="Precio">{money(quote.estimatedTotal)}</td>
+                  <td data-label="Estado"><span className={"status-badge " + statusCls(quote.status)}>{statuses[quote.status]}</span></td>
+                  <td data-label="Fecha">{new Date(quote.createdAt).toLocaleDateString("es-AR")}</td>
+                  <td className="actions-cell" data-label="Acciones">
                     <button className="btn btn-xs btn-outline" onClick={() => setSelected(quote)} aria-label={"Ver detalle"}>{"\u{1F441}\uFE0F"}</button>
                     <select className="btn btn-xs" style={{ cursor: "pointer" }} value={quote.status} onChange={(e) => changeStatus(quote.id, e.target.value)}>
                       {Object.entries(statuses).map(([key, label]) => <option key={key} value={key}>{label}</option>)}

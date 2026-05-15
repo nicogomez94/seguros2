@@ -51,7 +51,7 @@ export default function ServicesPage() {
           <p className="text-center subtitle">
             Trabajamos con las aseguradoras líderes del mercado para ofrecerte las mejores opciones.
           </p>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "28px", marginTop: "40px" }}>
+          <div className="services-cards-grid">
             {products.map((key, i) => (
               <div
                 key={key}
@@ -80,7 +80,7 @@ export default function ServicesPage() {
             ¿Cómo funciona?
           </h2>
           <p className="text-center subtitle">Tres pasos simples para tener tu cobertura activa.</p>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "32px", marginTop: "48px" }}>
+          <div className="how-steps-grid">
             {[
               { num: "01", title: "Completás el formulario", desc: "Elegís el tipo de cobertura e ingresás los datos básicos sobre lo que querés asegurar." },
               { num: "02", title: "Recibís tu cotización", desc: "En el día te enviamos una propuesta detallada con las opciones que mejor se adaptan a tu caso." },
@@ -125,7 +125,7 @@ export default function ServicesPage() {
       {/* FEATURES */}
       <section style={{ padding: "72px 0", background: "var(--gray-bg)" }}>
         <div className="container">
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "28px" }}>
+          <div className="features-grid">
             {features.map((f) => (
               <div key={f.title} className="testimonial-card" style={{ borderLeft: "4px solid var(--green)" }}>
                 <div style={{ fontSize: "2rem", marginBottom: "12px" }}>{f.icon}</div>

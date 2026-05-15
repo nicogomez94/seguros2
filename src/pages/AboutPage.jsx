@@ -21,7 +21,7 @@ export default function AboutPage() {
       {/* QUIÉNES SOMOS */}
       <section style={{ padding: "72px 0", background: "#fff" }}>
         <div className="container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "64px", alignItems: "center" }}>
+          <div className="about-who-grid">
             <div>
               <h2 style={{ fontSize: "2rem", fontWeight: 800, marginBottom: "20px", lineHeight: 1.2 }}>
                 Protegemos lo que construiste con esfuerzo
@@ -58,7 +58,7 @@ export default function AboutPage() {
             Nuestros valores
           </h2>
           <p className="text-center subtitle">Lo que nos guía en cada decisión y en cada cliente.</p>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "24px", marginTop: "40px" }}>
+          <div className="values-grid">
             {values.map((v) => (
               <div key={v.title} className="stat-item" style={{ padding: "32px 24px", textAlign: "left" }}>
                 <div style={{ fontSize: "2.2rem", marginBottom: "14px" }}>{v.icon}</div>
