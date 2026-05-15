@@ -114,8 +114,8 @@ export default function ServicesPage() {
           </div>
           <div className="upgrades-image">
             <img
-              src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=900&q=80"
-              alt="Coberturas adicionales"
+              src="https://images.unsplash.com/photo-1666346166849-8443c47f50fa?w=900&q=80&auto=format&fit=crop"
+              alt="Llaves de auto con cobertura de seguro"
             />
           </div>
         </div>

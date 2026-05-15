@@ -1,6 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom";
 import AppShell from "./components/AppShell.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
 import AdminPage from "./pages/AdminPage.jsx";
@@ -11,9 +11,20 @@ import QuotePage from "./pages/QuotePage.jsx";
 import ServicesPage from "./pages/ServicesPage.jsx";
 import "./styles.css";
 
+function ScrollToTop() {
+  const { pathname, search } = useLocation();
+
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [pathname, search]);
+
+  return null;
+}
+
 createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route element={<AppShell />}>
           <Route path="/" element={<HomePage />} />

@@ -792,7 +792,7 @@ img { max-width: 100%; display: block; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .planes-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
   .upgrades-grid { grid-template-columns: 1fr; }
-  .upgrades-text { padding: 40px 24px 0; }
+  .upgrades-text { padding: 40px 24px 28px; }
   .upgrades-image { height: 280px; }
   .config-grid { grid-template-columns: 1fr; }
   .company-fields-grid { grid-template-columns: 1fr; }
