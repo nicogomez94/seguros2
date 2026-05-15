@@ -1,6 +1,15 @@
 import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faEnvelope, faFileSignature, faHome, faInfoCircle, faShieldHalved, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { api } from "../lib/api.js";
+
+const navItems = [
+  { to: "/", label: "Inicio", end: true, icon: faHome },
+  { to: "/sobre-nosotros", label: "Sobre nosotros", icon: faInfoCircle },
+  { to: "/servicios", label: "Servicios", icon: faShieldHalved },
+  { to: "/contacto", label: "Contacto", icon: faEnvelope }
+];
 
 export default function AppShell() {
   const [open, setOpen] = useState(false);
@@ -51,10 +60,14 @@ export default function AppShell() {
             <span className="logo-icon" aria-hidden="true">🦅</span> Seguros Timbues
           </Link>
           <ul className={open ? "nav-links open" : "nav-links"}>
-            <li><NavLink to="/" end onClick={close}>Inicio</NavLink></li>
-            <li><NavLink to="/sobre-nosotros" onClick={close}>Sobre nosotros</NavLink></li>
-            <li><NavLink to="/servicios" onClick={close}>Servicios</NavLink></li>
-            <li><NavLink to="/contacto" onClick={close}>Contacto</NavLink></li>
+            {navItems.map((item) => (
+              <li key={item.to}>
+                <NavLink to={item.to} end={item.end} onClick={close}>
+                  <FontAwesomeIcon icon={item.icon} className="nav-link-icon" aria-hidden="true" />
+                  <span>{item.label}</span>
+                </NavLink>
+              </li>
+            ))}
           </ul>
           <div className="nav-cta">
             <NavLink
@@ -62,11 +75,12 @@ export default function AppShell() {
               to="/cotizar"
               onClick={close}
             >
+              <FontAwesomeIcon icon={faFileSignature} className="nav-link-icon" aria-hidden="true" />
               Cotizar
             </NavLink>
           </div>
           <button className="hamburger" onClick={() => setOpen((value) => !value)} aria-label="Abrir menu">
-            &#9776;
+            <FontAwesomeIcon icon={open ? faXmark : faBars} aria-hidden="true" />
           </button>
         </div>
       </nav>
