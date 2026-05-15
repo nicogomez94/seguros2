@@ -1331,9 +1331,8 @@ pre { background: var(--gray-bg); border-radius: 7px; padding: 12px; overflow: a
   to   { opacity: 1; transform: translateX(0)    scale(1);    }
 }
 @keyframes popIn {
-  from { opacity: 0; transform: scale(0.55) translateY(40px); }
-  65%  {             transform: scale(1.10) translateY(-6px);  }
-  to   { opacity: 1; transform: scale(1)    translateY(0);     }
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0);     }
 }
 @keyframes heroContentIn {
   from { opacity: 0; transform: translateY(-28px) scale(0.93); }
@@ -1377,25 +1376,21 @@ pre { background: var(--gray-bg); border-radius: 7px; padding: 12px; overflow: a
 .hero-btns   { animation: heroContentIn 0.85s cubic-bezier(0.22,1,0.36,1) 0.50s both; }
 .hero-img-scene { animation: heroContentIn 1.0s cubic-bezier(0.22,1,0.36,1) 0.30s both; }
 
-/* ── Section scroll-in defaults ── */
+/* ── Section scroll-in: solo fade, sin transform en la sección ── */
 .will-animate {
   opacity: 0;
-  transform: translateY(80px) scale(0.95);
-  transition: opacity  0.85s cubic-bezier(0.22,1,0.36,1),
-              transform 0.85s cubic-bezier(0.22,1,0.36,1);
+  transition: opacity 0.75s cubic-bezier(0.22,1,0.36,1);
 }
 .will-animate.in-view {
   opacity: 1;
   transform: none;
 }
 
-/* Per-section directional entry (only Y to avoid horizontal overflow) */
-.decidir.will-animate  { transform: translateY(60px) scale(0.96); }
-.upgrades.will-animate { transform: translateY(80px) scale(0.95); }
-.stats.will-animate    { transform: translateY(70px) scale(0.88); }
-/* Hero never hides — its children have their own entrance animations */
+/* Hero y page-hero nunca se ocultan */
 .hero.will-animate,
-.hero.will-animate.in-view { opacity: 1 !important; transform: none !important; filter: none !important; transition: none !important; }
+.hero.will-animate.in-view,
+.page-hero.will-animate,
+.page-hero.will-animate.in-view { opacity: 1 !important; transform: none !important; filter: none !important; transition: none !important; }
 
 /* ── Staggered children ── */
 .in-view .plan-card {
