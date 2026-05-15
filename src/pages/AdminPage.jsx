@@ -311,7 +311,8 @@ function CompanyPanel({ setMessage }) {
     { key: "email", label: "Correo electr\u00f3nico", hint: "Canal principal para recibir consultas." },
     { key: "phone", label: "Tel\u00e9fono", hint: "N\u00famero de contacto para atenci\u00f3n comercial." },
     { key: "address", label: "Direcci\u00f3n", hint: "Ubicaci\u00f3n comercial o punto de referencia." },
-    { key: "instagram", label: "Instagram", hint: "Enlace al perfil oficial de la empresa." }
+    { key: "instagram", label: "Instagram", hint: "Enlace al perfil oficial de la empresa." },
+    { key: "facebook", label: "Facebook", hint: "Enlace al perfil oficial de Facebook." }
   ];
 
   useEffect(() => {

@@ -97,6 +97,9 @@ function surchargeForProduct(productType, productData) {
   if (productType === "BICICLETA") {
     return Number(data.valorEstimado || 0) > 500000 ? 35 : 0;
   }
+  if (productType === "AGRO") {
+    return Number(data.hectareas || 0) > 200 ? 140 : 0;
+  }
   if (productType === "COMERCIO") {
     return Number(data.empleados || 0) > 5 ? 120 : 0;
   }
@@ -405,7 +408,8 @@ app.patch("/api/admin/company", requireAuth, async (req, res) => {
       email: req.body.email,
       phone: req.body.phone,
       address: req.body.address,
-      instagram: req.body.instagram
+      instagram: req.body.instagram,
+      facebook: req.body.facebook
     }
   });
   res.json(company);

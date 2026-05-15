@@ -48,7 +48,7 @@ export default function AppShell() {
       <nav className="navbar">
         <div className="nav-container">
           <Link className="nav-logo" to="/" onClick={close}>
-            <span className="logo-icon">S</span> Seguros Timbues
+            <span className="logo-icon" aria-hidden="true">🦅</span> Seguros Timbues
           </Link>
           <ul className={open ? "nav-links open" : "nav-links"}>
             <li><NavLink to="/" end onClick={close}>Inicio</NavLink></li>
@@ -95,6 +95,15 @@ export default function AppShell() {
           <div className="footer-col">
             <h4>Seguinos</h4>
             <ul>
+              <li>
+                <a
+                  href={company?.facebook || "https://www.facebook.com/profile.php?id=100069758515302"}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Facebook
+                </a>
+              </li>
               <li>
                 <a href={company?.instagram || "https://instagram.com/segurostimbues"} target="_blank" rel="noreferrer">
                   Instagram

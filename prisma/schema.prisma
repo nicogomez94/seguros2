@@ -30,6 +30,7 @@ enum ProductType {
   SALUD
   HOGAR
   BICICLETA
+  AGRO
   COMERCIO
   RESPONSABILIDAD_CIVIL
 }
@@ -132,6 +133,7 @@ model CompanySettings {
   phone     String
   address   String
   instagram String
+  facebook  String   @default("")
   updatedAt DateTime @updatedAt
 }
 

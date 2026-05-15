@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import motoImage from "../assets/moto.png";
-import trackerImage from "../assets/tracker.png";
+import trackerImage from "../assets/tracker2.png";
 
 export default function HomePage() {
   const featuredPlans = [
@@ -9,6 +9,7 @@ export default function HomePage() {
     { icon: "🩺", title: "Accidentes Personales", price: "$13.000", to: "/contacto", cta: "Consultar" },
     { icon: "🏠", title: "Seguro de Hogar", price: "$34.000", to: "/cotizar?producto=HOGAR", cta: "Cotizar" },
     { icon: "🚲", title: "Seguro de Bicicleta", price: "$20.000", to: "/cotizar?producto=BICICLETA", cta: "Cotizar" },
+    { icon: "🌾", title: "Seguro Agro", price: "a medida", to: "/cotizar?producto=AGRO", cta: "Cotizar" },
     { icon: "👜", title: "Bolso Protegido", price: "$15.000", to: "/contacto", cta: "Consultar" },
     { icon: "✈️", title: "Seguro para Viajes", price: "$20.000", to: "/contacto", cta: "Consultar" },
   ];

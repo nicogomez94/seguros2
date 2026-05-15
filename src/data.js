@@ -4,6 +4,7 @@ export const productLabels = {
   SALUD: "Plan de Salud",
   HOGAR: "Seguro de Hogar",
   BICICLETA: "Seguro de Bicicleta",
+  AGRO: "Seguro Agro",
   COMERCIO: "Seguro para Comercios",
   RESPONSABILIDAD_CIVIL: "Responsabilidad Civil"
 };
@@ -14,6 +15,7 @@ export const productDescriptions = {
   SALUD: "Planes de salud para personas, familias y asalariados.",
   HOGAR: "Protección ante incendio, robo, cristales y daños del hogar.",
   BICICLETA: "Cobertura para bicis urbanas, deportivas y de alto valor.",
+  AGRO: "Coberturas para el campo, maquinaria, cultivos y producción agropecuaria.",
   COMERCIO: "Protección comercial para locales, mercadería y empleados.",
   RESPONSABILIDAD_CIVIL: "Cobertura ante reclamos de terceros por tu actividad."
 };
@@ -55,6 +57,13 @@ export const productFields = {
     ["uso", "Uso", "select", ["Diario", "Recreativo", "Deportivo", "Competencia"]],
     ["guardado", "Lugar de guardado", "text"]
   ],
+  AGRO: [
+    ["actividad", "Actividad agropecuaria", "select", ["Agricultura", "Ganadería", "Mixta", "Contratista rural"]],
+    ["hectareas", "Hectáreas aproximadas", "number"],
+    ["localidad", "Localidad / zona rural", "text"],
+    ["maquinaria", "Maquinaria a asegurar", "text"],
+    ["cultivos", "Cultivos o producción principal", "text"]
+  ],
   COMERCIO: [
     ["rubro", "Rubro", "text"],
     ["empleados", "Cantidad de empleados", "number"],
@@ -76,6 +85,7 @@ export const debugProductData = {
   SALUD: { edad: "38", grupoFamiliar: "3", condicionLaboral: "Relación de dependencia", coberturaActual: "Obra social" },
   HOGAR: { tipoVivienda: "Casa", localidad: "Timbúes", metros: "95", tenencia: "Propietario", sumaAsegurada: "2500000" },
   BICICLETA: { tipo: "Mountain bike", marca: "Trek", valorEstimado: "650000", uso: "Deportivo", guardado: "Garage cerrado" },
+  AGRO: { actividad: "Agricultura", hectareas: "120", localidad: "Timbúes", maquinaria: "Tractor y sembradora", cultivos: "Soja y maíz" },
   COMERCIO: { rubro: "Indumentaria", empleados: "4", facturacion: "1800000", localidad: "Rosario", riesgos: "Robo e incendio" },
   RESPONSABILIDAD_CIVIL: { actividad: "Consultoría técnica", alcance: "Profesional", sumaAsegurada: "3500000", frecuencia: "Permanente" }
 };

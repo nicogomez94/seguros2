@@ -290,6 +290,7 @@ function localSurcharge(productType, data) {
   if (productType === "SALUD") return Math.max(0, Number(data.grupoFamiliar || 1) - 1) * 40 + (Number(data.edad || 0) > 55 ? 80 : Number(data.edad || 0) > 40 ? 40 : 0);
   if (productType === "HOGAR") return Number(data.metros || 0) > 120 ? 45 : 0;
   if (productType === "BICICLETA") return Number(data.valorEstimado || 0) > 500000 ? 35 : 0;
+  if (productType === "AGRO") return Number(data.hectareas || 0) > 200 ? 140 : 0;
   if (productType === "COMERCIO") return Number(data.empleados || 0) > 5 ? 120 : 0;
   if (productType === "RESPONSABILIDAD_CIVIL") return Number(data.sumaAsegurada || 0) > 3000000 ? 90 : 0;
   return 0;

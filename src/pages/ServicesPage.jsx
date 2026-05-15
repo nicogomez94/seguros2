@@ -7,6 +7,7 @@ const serviceIcons = {
   SALUD: "🏥",
   HOGAR: "🏠",
   BICICLETA: "🚲",
+  AGRO: "🌾",
   COMERCIO: "🏪",
   RESPONSABILIDAD_CIVIL: "⚖️",
 };
@@ -17,6 +18,7 @@ const servicePrices = {
   SALUD: "$200",
   HOGAR: "$180",
   BICICLETA: "$60",
+  AGRO: "$320",
   COMERCIO: "$250",
   RESPONSABILIDAD_CIVIL: "$120",
 };

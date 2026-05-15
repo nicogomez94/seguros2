@@ -9,6 +9,7 @@ const products = [
   ["SALUD", "Plan de Salud", 200, 360, 520],
   ["HOGAR", "Seguro de Hogar", 180, 280, 430],
   ["BICICLETA", "Seguro de Bicicleta", 65, 110, 180],
+  ["AGRO", "Seguro Agro", 320, 480, 720],
   ["COMERCIO", "Seguro para Comercios", 420, 650, 950],
   ["RESPONSABILIDAD_CIVIL", "Responsabilidad Civil", 260, 390, 580]
 ];
@@ -41,6 +42,11 @@ const extras = {
     ["robo_total", "Robo total", 18],
     ["danio", "Daños accidentales", 16],
     ["competencia", "Uso deportivo", 25]
+  ],
+  AGRO: [
+    ["granizo", "Granizo para cultivos", 90],
+    ["maquinaria", "Maquinaria agrícola", 120],
+    ["incendio_campo", "Incendio rural", 75]
   ],
   COMERCIO: [
     ["incendio", "Incendio ampliado", 80],
@@ -88,7 +94,8 @@ async function main() {
       email: "info@segurostimbues.com.ar",
       phone: "0800-666-8400",
       address: "Timbúes, Santa Fe, Argentina",
-      instagram: "https://instagram.com/segurostimbues"
+      instagram: "https://instagram.com/segurostimbues",
+      facebook: "https://www.facebook.com/profile.php?id=100069758515302"
     }
   });
 
