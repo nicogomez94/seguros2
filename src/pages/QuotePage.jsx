@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { debugPerson, debugProductData, productDescriptions, productFields, productLabels } from "../data.js";
 import { api, isDebug, money } from "../lib/api.js";
+import { WHATSAPP_PHONE_DISPLAY, WHATSAPP_URL } from "../lib/contact.js";
 
 const products = Object.keys(productLabels);
 const STEP_LABELS = ["Producto", "Tu vehículo", "Tus datos", "Cobertura", "Confirmación"];
@@ -266,6 +267,12 @@ export default function QuotePage() {
               <div className="confirm-details">
                 <p>📧 <strong>Te enviamos un email</strong> con el resumen de tu cotización.</p>
                 <p>📞 <strong>Un asesor te llamará</strong> en las próximas 24 hs hábiles.</p>
+                <p>
+                  💬 <strong>WhatsApp:</strong>{" "}
+                  <a className="confirm-whatsapp-link" href={WHATSAPP_URL} target="_blank" rel="noreferrer">
+                    {WHATSAPP_PHONE_DISPLAY}
+                  </a>
+                </p>
                 <p>
                   💰 <strong>Precio estimado:</strong>{" "}
                   <span className="highlight-price">

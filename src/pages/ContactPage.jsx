@@ -1,25 +1,26 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { api, isDebug } from "../lib/api.js";
+import { WHATSAPP_PHONE_DISPLAY, WHATSAPP_TEL_URL, WHATSAPP_URL } from "../lib/contact.js";
 
 const initial = isDebug
-  ? { name: "Juan García", email: "juan@email.com", phone: "341 555-0101", subject: "Consulta por seguro", message: "Quiero recibir asesoramiento para elegir una cobertura." }
+  ? { name: "Juan García", email: "juan@email.com", phone: WHATSAPP_PHONE_DISPLAY, subject: "Consulta por seguro", message: "Quiero recibir asesoramiento para elegir una cobertura." }
   : { name: "", email: "", phone: "", subject: "", message: "" };
 
 const channels = [
   {
     icon: "📞",
     title: "Teléfono",
-    value: "+54 341 555-0100",
+    value: WHATSAPP_PHONE_DISPLAY,
     sub: "Lun–Vie 9:00 a 18:00",
-    href: "tel:+543415550100",
+    href: WHATSAPP_TEL_URL,
   },
   {
     icon: "💬",
     title: "WhatsApp",
-    value: "+54 9 341 555-0101",
+    value: WHATSAPP_PHONE_DISPLAY,
     sub: "Respuesta en menos de 1 hora",
-    href: "https://wa.me/5493415550101",
+    href: WHATSAPP_URL,
   },
   {
     icon: "📧",
@@ -126,7 +127,7 @@ export default function ContactPage() {
                 <Link className="btn btn-green btn-full" to="/cotizar">Ir al cotizador</Link>
 
                 <div className="contact-sidebar-social">
-                  <a href="https://wa.me/5493415550101" className="contact-social-btn" target="_blank" rel="noopener noreferrer">
+                  <a href={WHATSAPP_URL} className="contact-social-btn" target="_blank" rel="noopener noreferrer">
                     <span>💬</span> WhatsApp
                   </a>
                   <a href="https://instagram.com" className="contact-social-btn" target="_blank" rel="noopener noreferrer">
@@ -163,7 +164,7 @@ export default function ContactPage() {
                       </div>
                       <div className="form-group">
                         <label htmlFor="phone">Teléfono</label>
-                        <input id="phone" placeholder="+54 341 ..." value={form.phone} onChange={(e) => setField("phone", e.target.value)} />
+                        <input id="phone" placeholder={WHATSAPP_PHONE_DISPLAY} value={form.phone} onChange={(e) => setField("phone", e.target.value)} />
                       </div>
                       <div className="form-group">
                         <label htmlFor="subject">Asunto</label>

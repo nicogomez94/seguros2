@@ -87,12 +87,14 @@ async function main() {
 
   await prisma.companySettings.upsert({
     where: { id: 1 },
-    update: {},
+    update: {
+      phone: "+54 9 3416 02-5391"
+    },
     create: {
       id: 1,
       name: "Seguros Timbúes",
       email: "info@segurostimbues.com.ar",
-      phone: "0800-666-8400",
+      phone: "+54 9 3416 02-5391",
       address: "Timbúes, Santa Fe, Argentina",
       instagram: "https://instagram.com/segurostimbues",
       facebook: "https://www.facebook.com/profile.php?id=100069758515302"
@@ -138,7 +140,7 @@ async function main() {
             firstName: "Juan",
             lastName: "García",
             email: "juan@email.com",
-            phone: "341 555-0101",
+            phone: "+54 9 3416 02-5391",
             dni: "30123456",
             birthDate: new Date("1989-05-14"),
             address: "San Martín 123, Timbúes"

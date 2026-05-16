@@ -1,0 +1,4 @@
+export const WHATSAPP_PHONE_DISPLAY = "+54 9 3416 02-5391";
+export const WHATSAPP_PHONE_DIGITS = "5493416025391";
+export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_PHONE_DIGITS}`;
+export const WHATSAPP_TEL_URL = `tel:+${WHATSAPP_PHONE_DIGITS}`;

@@ -94,7 +94,7 @@ export const debugPerson = {
   firstName: "Juan",
   lastName: "García",
   email: "juan@email.com",
-  phone: "341 555-0101",
+  phone: "+54 9 3416 02-5391",
   dni: "30123456",
   birthDate: "1989-05-14",
   address: "San Martín 123, Timbúes"

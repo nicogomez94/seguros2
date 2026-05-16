@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { productLabels } from "../data.js";
 import { api, money } from "../lib/api.js";
+import { WHATSAPP_PHONE_DISPLAY, WHATSAPP_URL } from "../lib/contact.js";
 
 const statuses = { PENDING: "Pendiente", APPROVED: "Aprobada", REJECTED: "Rechazada" };
 const statusCls = (s) => ({ PENDING: "pending", APPROVED: "approved", REJECTED: "rejected" }[s] || "pending");
@@ -207,6 +208,12 @@ function QuoteDetail({ quote, onClose }) {
         <p><strong>{"Tel\u00e9fono:"}</strong> {quote.person?.phone}</p>
         <p><strong>Producto:</strong> {productLabels[quote.productType]} {"\u00b7"} {quote.planName}</p>
         <p><strong>Total:</strong> {money(quote.estimatedTotal)}</p>
+        <p>
+          <strong>WhatsApp Seguros:</strong>{" "}
+          <a className="admin-detail-link" href={WHATSAPP_URL} target="_blank" rel="noreferrer">
+            {WHATSAPP_PHONE_DISPLAY}
+          </a>
+        </p>
         <h3>{"Datos espec\u00edficos"}</h3>
         <pre>{JSON.stringify(quote.productData?.data || {}, null, 2)}</pre>
         <h3>Extras</h3>
@@ -316,7 +323,9 @@ function CompanyPanel({ setMessage }) {
   ];
 
   useEffect(() => {
-    api("/api/admin/company").then(setCompany).catch((error) => setMessage(error.message));
+    api("/api/admin/company")
+      .then((settings) => setCompany({ ...settings, phone: settings?.phone || WHATSAPP_PHONE_DISPLAY }))
+      .catch((error) => setMessage(error.message));
   }, []);
 
   if (!company) {
