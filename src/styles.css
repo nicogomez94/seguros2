@@ -81,6 +81,7 @@ img { max-width: 100%; display: block; }
 }
 .nav-container {
   max-width: 1180px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 24px;
   display: flex;
@@ -96,6 +97,7 @@ img { max-width: 100%; display: block; }
   display: flex;
   align-items: center;
   gap: 8px;
+  min-width: 0;
 }
 .logo-icon { font-size: 1.5rem; }
 .nav-links {
@@ -125,6 +127,7 @@ img { max-width: 100%; display: block; }
   align-items: center;
   gap: 7px;
 }
+.mobile-menu-quote { display: none; }
 .hamburger { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text); }
 
 /* ================================
@@ -853,14 +856,15 @@ img { max-width: 100%; display: block; }
 }
 @media (max-width: 768px) {
   .nav-links { display: none; }
-  .nav-cta .btn-sm-ghost { display: none; }
-  .nav-cta { margin-left: auto; }
+  .nav-cta { display: none; }
   .hamburger {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     width: 38px;
     height: 38px;
+    margin-left: auto;
+    flex: 0 0 38px;
   }
   /* Hero stacks: image on top, content below */
   .hero-inner { flex-direction: column; padding: 0; gap: 0; }
@@ -902,7 +906,12 @@ img { max-width: 100%; display: block; }
   .hero-img-car { width: 65%; }
   .hero-btns { gap: 8px; }
   .btn-hero-solid, .btn-hero-outline { padding: 9px 16px; font-size: 0.75rem; }
-  .nav-container { padding: 0 16px; }
+  .nav-container { gap: 12px; padding: 0 16px; }
+  .nav-logo {
+    flex: 1 1 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
   .form-container { padding: 24px 16px; }
   .step span { display: none; }
   .steps-section { padding-bottom: 18px; }
@@ -1267,6 +1276,17 @@ pre { background: var(--gray-bg); border-radius: 7px; padding: 12px; overflow: a
   .nav-links.open a:hover,
   .nav-links.open a.active {
     background: var(--green-light);
+  }
+  .nav-links.open .mobile-menu-quote {
+    display: block;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+  }
+  .nav-links.open .mobile-menu-quote a {
+    justify-content: center;
+    border: 2px solid var(--green);
+    color: var(--green);
+    font-weight: 800;
   }
   .admin-body .admin-main, .admin-shell .admin-main { margin-left: 0 !important; }
   .admin-sidebar { transform: translateX(-240px) !important; }

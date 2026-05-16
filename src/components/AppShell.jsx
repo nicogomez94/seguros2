@@ -70,6 +70,12 @@ export default function AppShell() {
                 </NavLink>
               </li>
             ))}
+            <li className="mobile-menu-quote">
+              <NavLink to="/cotizar" onClick={close}>
+                <FontAwesomeIcon icon={faFileSignature} className="nav-link-icon" aria-hidden="true" />
+                <span>Cotizar</span>
+              </NavLink>
+            </li>
           </ul>
           <div className="nav-cta">
             <NavLink
