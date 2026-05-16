@@ -1,7 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { api, isDebug } from "../lib/api.js";
+import { isDebug } from "../lib/api.js";
 import { WHATSAPP_PHONE_DISPLAY, WHATSAPP_TEL_URL, WHATSAPP_URL } from "../lib/contact.js";
+
+const CONTACT_ENDPOINT = "https://contact-form-service-e8aa.onrender.com/api/contact";
+const CONTACT_TO = import.meta.env.VITE_CONTACT_TO || "";
+const CONTACT_SITE = import.meta.env.VITE_CONTACT_SITE || "";
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const initial = isDebug
   ? { name: "Juan García", email: "juan@email.com", phone: WHATSAPP_PHONE_DISPLAY, subject: "Consulta por seguro", message: "Quiero recibir asesoramiento para elegir una cobertura." }
@@ -48,11 +53,53 @@ export default function ContactPage() {
 
   async function submit(event) {
     event.preventDefault();
-    setLoading(true); setStatus("");
+    const name = form.name.trim();
+    const email = form.email.trim();
+    const message = form.message.trim();
+
+    setStatus("");
+
+    if (!name || !email || !message) {
+      setStatus("Completá nombre, email y mensaje para enviarnos tu consulta.");
+      return;
+    }
+
+    if (!EMAIL_PATTERN.test(email)) {
+      setStatus("Ingresá un email válido para que podamos responderte.");
+      return;
+    }
+
+    if (!CONTACT_TO || !CONTACT_SITE) {
+      setStatus("No pudimos enviar tu consulta. Falta configurar el destinatario del formulario.");
+      return;
+    }
+
+    setLoading(true);
     try {
-      await api("/api/contact", { method: "POST", body: form });
+      const response = await fetch(CONTACT_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          to: CONTACT_TO,
+          message,
+          site: CONTACT_SITE,
+          company: "",
+        }),
+      });
+      const result = await response.json().catch(() => null);
+
+      if (!response.ok) {
+        throw new Error(result?.message || "No pudimos enviar tu consulta. Intentá nuevamente en unos minutos.");
+      }
+
+      if (result?.success !== true) {
+        throw new Error(result?.message || "No pudimos confirmar el envío. Intentá nuevamente en unos minutos.");
+      }
+
       setSent(true);
-      if (!isDebug) setForm({ name: "", email: "", phone: "", subject: "", message: "" });
+      setForm({ name: "", email: "", phone: "", subject: "", message: "" });
     } catch (error) { setStatus(error.message); }
     finally { setLoading(false); }
   }
@@ -143,7 +190,7 @@ export default function ContactPage() {
                 <div className="contact-success">
                   <div className="contact-success-icon">✅</div>
                   <h3>¡Mensaje enviado!</h3>
-                  <p>Recibimos tu consulta. Un asesor te responderá a la brevedad en el email o teléfono que indicaste.</p>
+                  <p>Recibimos tu consulta. Un asesor te responderá a la brevedad en el email que indicaste.</p>
                   <button className="btn btn-outline" onClick={() => setSent(false)}>Enviar otro mensaje</button>
                 </div>
               ) : (
