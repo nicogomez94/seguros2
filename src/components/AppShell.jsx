@@ -129,9 +129,6 @@ export default function AppShell() {
                   Instagram
                 </a>
               </li>
-              <li>
-                <a href="https://www.argentina.gob.ar/ssn" target="_blank" rel="noreferrer">SSN</a>
-              </li>
             </ul>
           </div>
           <div className="footer-col">

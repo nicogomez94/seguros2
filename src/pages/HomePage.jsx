@@ -26,7 +26,7 @@ export default function HomePage() {
             </p>
             <p className="hero-desc">
               Agente de seguros a nivel nacional en Argentina. Auto, salud, hogar,
-              bicicleta, comercio y responsabilidad civil.
+              bicicleta, agro, comercio y responsabilidad civil.
             </p>
             <div className="hero-btns">
               <Link className="btn-hero-solid" to="/cotizar">Cotizá ahora</Link>
@@ -131,11 +131,6 @@ export default function HomePage() {
               <div className="stat-icon">⏰</div>
               <div className="stat-number">24 hs</div>
               <div className="stat-label">Atención al asegurado</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-icon">🏛️</div>
-              <div className="stat-number">SSN</div>
-              <div className="stat-label">Referencia institucional</div>
             </div>
           </div>
         </div>

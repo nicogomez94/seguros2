@@ -195,7 +195,7 @@ export default function QuotePage() {
                       <div className="coverage-icon">🛡️</div>
                       <strong>{plan.planName}</strong>
                       <p>{plan.description}</p>
-                      <span className="coverage-price">{money(plan.basePrice)}/mes</span>
+                      <span className="coverage-price">{money(plan.basePrice)}</span>
                     </div>
                   </label>
                 ))}
@@ -217,7 +217,7 @@ export default function QuotePage() {
                         <div className="extra-body">
                           <strong>{extra.name}</strong>
                           <p>{extra.description || ""}</p>
-                          <span>+{money(extra.price)}/mes</span>
+                          <span>+{money(extra.price)}</span>
                         </div>
                       </label>
                     ))}
@@ -228,21 +228,21 @@ export default function QuotePage() {
               <div className="price-summary">
                 <div className="price-row">
                   <span>Plan seleccionado:</span>
-                  <span>{money(selectedPlan?.basePrice || 0)}/mes</span>
+                  <span>{money(selectedPlan?.basePrice || 0)}</span>
                 </div>
                 {surcharge > 0 && (
                   <div className="price-row">
                     <span>Ajuste:</span>
-                    <span>{money(surcharge)}/mes</span>
+                    <span>{money(surcharge)}</span>
                   </div>
                 )}
                 <div className="price-row">
                   <span>Extras:</span>
-                  <span>{money(selectedExtras.reduce((s, e) => s + e.price, 0))}/mes</span>
+                  <span>{money(selectedExtras.reduce((s, e) => s + e.price, 0))}</span>
                 </div>
                 <div className="price-row price-total">
                   <span>Total estimado:</span>
-                  <span>{money(total)}/mes</span>
+                  <span>{money(total)}</span>
                 </div>
               </div>
 
@@ -276,7 +276,7 @@ export default function QuotePage() {
                 <p>
                   💰 <strong>Precio estimado:</strong>{" "}
                   <span className="highlight-price">
-                    {money(createdQuote?.estimatedTotal || total)}/mes
+                    {money(createdQuote?.estimatedTotal || total)}
                   </span>
                 </p>
               </div>
